@@ -1,0 +1,33 @@
+h2, p{
+    color:white;
+}
+
+#lugar{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagenes/AcercaNosotros/horno3.jpg);
+    height: 431px;
+    width: 739px;   
+}
+
+#historia{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagenes/AcercaNosotros/historia2.jpg);
+    height: 431px;
+    width: 739px;
+}
+
+#contacto{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagenes/AcercaNosotros/contacto.jpg);
+    height: 431px;
+    width: 739px;
+}
