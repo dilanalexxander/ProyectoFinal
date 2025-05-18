@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATEAU BLANC</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/Reportes.css">
+</head>
+
+<body>
+    <div class="container">
+        <H1 class="text-center">REPORTE DE RESERVACIONES</H1>
+        <form>
+          <div class="row">
+            <div class="mb-3 col">
+                <label for="fecha_Inicio" class="form-label">Desde:</label>
+                <input type="date" class="form-control" id="fecha_Inicio" name="fecha_Inicio">
+            </div>
+            <div class="mb-3 col">
+              <label for="fecha_Final" class="form-label">Hasta:</label>
+              <input type="date" class="form-control" id="fecha_Final" name="fecha_Final">
+          </div>
+        </div>
+            <button type="submit" class="btn btn-primary">Generar Reporte</button>
+        </form>
+        <div class="row reportes">
+          <div class="col-md">
+            <h3>Demanda de horario</h3>
+            <canvas  id="reporteHoras"></canvas>
+          </div>
+          <div class="col-md">
+            <h3>Resumen General</h3>
+            <canvas  id="reporteReservas"></canvas>
+          </div>          
+        </div>
+    </div>
+    
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script>
+      var xValues = ["10:00", "10:15", "10:30", "10:45","11:00", "11:15", "11:30", "11:45"];
+      var yValues = [5,10,7,9,5,10,7,9,0];
+      
+      new Chart("reporteHoras", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            data: yValues,
+            backgroundColor: "orange"
+          }]
+        },
+        options: {
+          legend: {display: false},
+          title: {
+            display: true,
+            text: "Horario"
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      var xValues2 = ["Canceladas", "Confirmadas"];
+      var yValues2 = [74,26];
+      var barColors = ["red", "green"];
+
+      new Chart("reporteReservas", {
+        type: "doughnut", data: {
+          labels: xValues2,
+          datasets: [{
+            data: yValues2,
+            backgroundColor: barColors
+          }]
+        },
+        options: {
+          legend: {
+             display: true,
+            position: 'bottom'
+          },
+        }
+      });
+    </script>
+
+
+
+</body>
+
+</html>

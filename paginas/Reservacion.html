@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATEAU BLANC</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <H1 class="text-center">RESERVACIÓN</H1>
+        <form>
+            <div class="mb-3">
+                <label for="FechaR" class="form-label">Fecha de reservación:</label>
+                <input type="date" class="form-control" id="fechaR" name="fechaR">
+              </div>
+            <div class="mb-3">
+                <label for="PersonasR" class="form-label">Cantidad de personas:</label>
+                <select class="form-select" aria-label="Cantidad de personas">
+                <option selected disabled>SELECCIONE LA CANTIDAD DE PERSONAS</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="HoraR" class="form-label">Hora de reservación:</label>
+                <select class="form-select" aria-label="Hora de reservación">
+                <option selected disabled>SELECCIONE LA HORA</option>
+                <option value="1">10:00</option>
+                <option value="2">10:15</option>
+                <option value="3">10:30</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </form>
+    </div>
+    
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/codigo.js"></script>
+</body>
+
+</html>

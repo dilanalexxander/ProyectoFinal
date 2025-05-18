@@ -1,0 +1,14 @@
+.opinionT{
+    padding: 5px;
+    padding-top: 15px;
+    background-color: rgba(0, 0, 0, .2);
+    margin: 15px;
+}
+
+.estrellas_O{
+    color: rgba(0, 0, 0, .25)
+}
+
+.estrellas_O .checked{
+    color: orange;
+}
