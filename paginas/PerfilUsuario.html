@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHATEU BLANC</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.2.css">
+    <link rel="stylesheet" href="../css/Opiniones.css"> 
 </head>
 
 <body class="bg-light">
@@ -49,48 +51,99 @@
             </div>
             <div class="tab-pane fade container-fluid my-5" id="reservaciones">
                 <div class="container mt-3">
-                    <h2>Hover Rows</h2>
-                    <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>            
+                    <h2>Reservaciones</h2>       
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>Firstname</th>
-                          <th>Lastname</th>
-                          <th>Email</th>
+                          <th>Fecha</th>
+                          <th>Hora</th>
+                          <th>Cantidad de personas</th>
+                          <th>Estado de reservación</th>
+                          <th> </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                          <td>john@example.com</td>
+                          <td>25/05/2025</td>
+                          <td>9:30</td>
+                          <td>8</td>
+                          <td><span class="badge bg-primary">Pendiente</span></td>
+                          <th>
+                            <button type="button" class="btn btn-secondary btn-sm">Confirmar</button>
+                            <button type="button" class="btn btn-secondary btn-sm">Cancelar</button>
+                          </th>
                         </tr>
                         <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                          <td>mary@example.com</td>
+                          <td>10/05/2025</td>
+                          <td>10:30</td>
+                          <td>6</td>
+                          <td><span class="badge bg-success">Confirmada</span></td>
+                          <th> </th>
                         </tr>
                         <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          <td>july@example.com</td>
+                          <td>08/05/2025</td>
+                          <td>10:30</td>
+                          <td>6</td>
+                          <td><span class="badge bg-danger">Danger</span></td>
+                          <th> </th>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
+                </div>
                   
             </div>
-            <div class="tab-pane fade container-fluid my-5" id="opiniones">
-                <a>
-                    <h2>Museo del Acero</h2>
-                    <p>Monterrey, N.L.</p>
-                </a>
+            <div class="tab-pane fade container my-5" id="opiniones">
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th class="col-sm-1"> </th>
+                        <th class="col-sm-8"> </th>
+                        <th class="col-sm-2"> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="opinion1"></td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                        <td class="estrellas_O">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="radio" class="form-check-input" id="radio2" name="optradio" value="opinion2"></td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                        <td class="estrellas_O">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="radio" class="form-check-input" id="radio3" name="optradio" value="opinion3"></td>
+                        <td class="comentario_O">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                        <td class="estrellas_O">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
 
 
-    <script src="../js/popper.min.js" ></script>
+    
     <script src="../js/bootstrap.bundle.min.js" ></script>
+    <script src="../js/font-awesome.min.js"></script>
 </body>
 </html>
