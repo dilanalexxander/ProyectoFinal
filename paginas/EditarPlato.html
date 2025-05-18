@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATEU BLANC</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <br><section class="banner" style="text-align: center;">
+        <h1 class="page-title">Editar plato</h1>
+    </section> <br>
+
+    <div class="container">
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Categoría:</label>
+            <select class="form-select" aria-label="Categoría:">
+                <option selected disabled>Selecciona la categoría del platillo</option>
+                <option value="1">Entrada</option>
+                <option value="2">Ensalada</option>
+                <option value="3">Sopa</option>
+                <option value="4">Plato Fuerte</option>
+            </select>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="pname" class="form-label">Nombre del platillo:</label>
+            <input type="text" class="form-control" id="pname" placeholder="Introduce el nombre del platillo" name="pname" required>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="pprice" class="form-label">Precio:</label>
+            <input type="number" class="form-control" id="pprice" placeholder="Introduce el precio del platillo" name="pprice" required>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="pdesc" class="form-label">Descripción:</label>
+            <textarea class="form-control" id="pdesc" rows="3" required placeholder="Introduce la descripción del platillo"></textarea>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="pfoto" class="form-label">Introduce la imagen del platillo:</label>
+            <input class="form-control" type="file" id="pfoto">
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+        <button type="button" class="btn btn-secondary btn-lg " style="margin-right: 100px">Guardar</button>
+        <button type="button" onclick="window.location.href='./PerfilAdmin.html'" class="btn btn-secondary btn-lg">Cancelar</button>
+        </div>
+        
+    </div>
+
+    <script src="../js/popper.min.js" ></script>
+    <script src="../js/bootstrap.bundle.min.js" ></script>
+</body>
