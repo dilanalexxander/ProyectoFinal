@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATEU BLANC</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <br><section class="banner" style="text-align: center;">
+        <h1 class="page-title">Editar información</h1>
+    </section> <br>
+
+    <div class="container">
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="uname" value="Introduce el nombre" name="uname" required>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Nombre de usuario:</label>
+            <input type="text" class="form-control" id="uname" value="Introduce el nombre de usuario" name="uname" required>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Telefono:</label>
+            <input type="text" class="form-control" id="uname" value="Introduce el telefono" name="uname" required>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="uname" Value="Introduce la contraseña" name="uname" required>
+        </div>
+
+        <label for="uname" class="form-label">Tipo de usuario</label>
+        <select class="form-select">
+            <option value="" selected disabled hidden>Selecciona tipo de usuario</option>
+            <option>Usuario</option>
+            <option>Recepcionista</option>
+            <option>Administrador</option>
+        </select><br>
+
+        <div class="d-flex justify-content-center align-items-center">
+        <button type="button" class="btn btn-secondary btn-lg " style="margin-right: 100px">Guardar</button>
+        <button type="button" onclick="window.location.href='./PerfilUsuario.html'" class="btn btn-secondary btn-lg">Cancelar</button>
+        </div>
+        
+    </div>
+
+    <script src="../js/popper.min.js" ></script>
+    <script src="../js/bootstrap.bundle.min.js" ></script>
+</body>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATEU BLANC</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <br><section class="banner" style="text-align: center;">
+        <h1 class="page-title">Perfil del usuario</h1>
+    </section> <br>
+
+    <!-- Nav tabs -->
+    
+    <ul class="nav nav-tabs justify-content-center nav-justified">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#info">Información del perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#reservaciones">Reservaciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#opiniones">Opiniones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./Reservacion.html">Reservar</a>
+        </li>
+    </ul>
+    
+    <div class="container-fluid my-5">
+        <div class="tab-content">
+            <div class="tab-pane fade show active container-fluid my-5" id="info">
+                <label for="uname" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="uname" value="Nombre del usuario" name="uname" disabled><br>
+                <label for="uname" class="form-label">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="uname" value="Nombre de usuario" name="uname" disabled><br>
+                <label for="uname" class="form-label">Telefono:</label>
+                <input type="text" class="form-control" id="uname" value="Telefono del usuario" name="uname" disabled><br>
+                <label for="uname" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" id="uname" value="Contraseña del usuario" name="uname" disabled><br>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button onclick="window.location.href='./EditarUsuario.html';" class="btn btn-secondary btn-lg float-end">Editar</button>
+                </div>
+            </div>
+            <div class="tab-pane fade container-fluid my-5" id="reservaciones">
+                <a>
+                    <h2>Museo del Acero horno3</h2>
+                    <p>Av. Fundidora s/n  Monterrey, N.L.</p>
+                </a>
+            </div>
+            <div class="tab-pane fade container-fluid my-5" id="opiniones">
+                <a>
+                    <h2>Museo del Acero</h2>
+                    <p>Monterrey, N.L.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js/popper.min.js" ></script>
+    <script src="../js/bootstrap.bundle.min.js" ></script>
+</body>
