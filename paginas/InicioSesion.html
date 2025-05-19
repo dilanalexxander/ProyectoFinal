@@ -5,37 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>CHATEAU BLANC</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body class="bg-light">
 
     <!--titulo Iniciar Sesion-->
 
+    <div class="container-fluid my-3">
+        <a href="../index.html">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+
     <section class="banner" style="text-align: center;">
-        <h1 class="page-title">Iniciar Sesión</h1>
+        <h1 class="page-title encabezado">INICIAR SESIÓN</h1>
     </section>
 
     <div class="container">
-        <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Telefono:</label>
-            <input type="text" class="form-control" id="uname" placeholder="Introduce el telefono" name="uname" required>
+        <div class="mb-3 mt-3 textStyle">
+            <label for="utel" class="form-label">Telefono:</label>
+            <input type="text" class="form-control" id="utel" placeholder="Introduce el telefono" name="utel" required>
         </div>
 
-        <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="uname" placeholder="Introduce la contraseña" name="uname" required>
+        <div class="mb-3 mt-3 textStyle">
+            <label for="upass" class="form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="upass" placeholder="Introduce la contraseña" name="upass" required>
         </div>
 
         <div class="d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-secondary btn-lg">Iniciar Sesión</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='./PerfilUsuario.html';">Iniciar Sesión</button>
         </div>
-        <br>
-        <div class="d-flex justify-content-center align-items-center">
-            <a href="./Registrarse.html" class="btn btn-primary">
-                Registrarse
-            </a>
+
+         <div class="d-flex justify-content-center align-items-center p-3">
+        <button type="button" class="btn btnS btn-lg" onclick="window.location.href='./Registrarse.html';">Registrarse</button>
         </div>
     </div>
 

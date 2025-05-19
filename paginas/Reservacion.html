@@ -7,35 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHATEAU BLANC</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body>
+    <div class="container-fluid my-3">
+        <a href="../paginas/PerfilUsuario.html">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+
     <div class="container">
-        <H1 class="text-center">RESERVACIÓN</H1>
+        <H1 class="text-center encabezado">RESERVACIÓN</H1>
         <form>
-            <div class="mb-3">
+            <div class="mb-3 textStyle">
                 <label for="FechaR" class="form-label">Fecha de reservación:</label>
-                <input type="date" class="form-control" id="fechaR" name="fechaR">
+                <input type="date" class="form-control" id="fechaR" name="fechaR" required>
               </div>
-            <div class="mb-3">
+            <div class="mb-3 textStyle">
                 <label for="PersonasR" class="form-label">Cantidad de personas:</label>
-                <select class="form-select" aria-label="Cantidad de personas">
+                <select class="form-select" aria-label="Cantidad de personas" name="PersonasR" id="PersonasR">
                 <option selected disabled>SELECCIONE LA CANTIDAD DE PERSONAS</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 textStyle">
                 <label for="HoraR" class="form-label">Hora de reservación:</label>
-                <select class="form-select" aria-label="Hora de reservación">
-                <option selected disabled>SELECCIONE LA HORA</option>
-                <option value="1">10:00</option>
-                <option value="2">10:15</option>
-                <option value="3">10:30</option>
-              </select>
+                <select class="form-select" aria-label="Hora de reservación" name="HoraR" id="HoraR"> 
+                  <option selected disabled>SELECCIONE LA HORA</option>
+                  <option value="1">10:00</option>
+                  <option value="2">10:15</option>
+                  <option value="3">10:30</option>
+                </select>
             </div>
-            <button type="submit" class="btn btn-primary">Reservar</button>
+            <button type="submit" value="submit" class="btn btn-lg btn-primary">Reservar</button>
           </form>
     </div>
     

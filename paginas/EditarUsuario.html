@@ -5,39 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
+    <title>CHATEAU BLANC</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body class="bg-light">
 
+    <div class="container-fluid my-3">
+        <a href="../paginas/PerfilUsuario.html">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+
     <br><section class="banner" style="text-align: center;">
-        <h1 class="page-title">Editar información</h1>
+        <h1 class="page-title encabezado">EDITAR INFORMACIÓN</h1>
     </section> <br>
 
     <div class="container">
-        <div class="mb-3 mt-3">
+        <div class="mb-3 mt-3 textStyle">
             <label for="uname" class="form-label">Nombre:</label>
             <input type="text" class="form-control" id="uname" value="Introduce el nombre" name="uname" required>
         </div>
 
-        <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Nombre de usuario:</label>
-            <input type="text" class="form-control" id="uname" value="Introduce el nombre de usuario" name="uname" required>
+        <div class="mb-3 mt-3 textStyle">
+            <label for="uuser" class="form-label">Nombre de usuario:</label>
+            <input type="text" class="form-control" id="uuser" value="Introduce el nombre de usuario" name="uuser" required>
         </div>
 
-        <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Telefono:</label>
-            <input type="text" class="form-control" id="uname" value="Introduce el telefono" name="uname" required>
+        <div class="mb-3 mt-3 textStyle">
+            <label for="utel" class="form-label">Telefono:</label>
+            <input type="text" class="form-control" id="utel" value="Introduce el telefono" name="utel" required>
         </div>
 
-        <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="uname" Value="Introduce la contraseña" name="uname" required>
+        <div class="mb-3 mt-3 textStyle">
+            <label for="upass" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="upass" Value="Introduce la contraseña" name="upass" required>
         </div>
 
-        <div class="d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-secondary btn-lg " style="margin-right: 100px">Guardar</button>
+        <div class="d-flex justify-content-center align-items-center my-5">
+        <button type="button" class="btn btn-primary btn-lg " style="margin-right: 100px">Guardar</button>
         <button type="button" onclick="window.location.href='./PerfilUsuario.html'" class="btn btn-secondary btn-lg">Cancelar</button>
         </div>
         

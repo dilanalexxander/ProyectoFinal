@@ -1,0 +1,71 @@
+.encabezado{
+     font-family: "Playfair", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 90px;
+}
+
+.textStyle, .btn, .nav-link, .card-title{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.textStyleUser{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: 20px;
+}
+
+.precio {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.card-text{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.2;
+}
+
+
+.menu_h2{
+    font-size: 7.5vw;
+    letter-spacing: 4px;
+}
+
+.navMenu{
+    font-size: 20px;
+}
+
+.menuLogo{
+    width: 50%;
+}
+
+.menuLogoBack{
+    width: 32vw;
+}
+
+.btnS{
+    background-color: darkblue;
+    color: white;
+}
+
+.btnS:hover{
+    background-color: #000061;
+    color: whitesmoke;
+}
+
+input[type=radio] {
+    transform: scale(1.5);
+    margin: auto;
+}

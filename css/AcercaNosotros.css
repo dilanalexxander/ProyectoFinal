@@ -3,31 +3,39 @@ h2, p{
 }
 
 #lugar{
-    display: flex;
-    text-align:center;
-    justify-content: center;
-    align-items: center;
     background-image: url(../imagenes/AcercaNosotros/horno3.jpg);
-    height: 431px;
-    width: 739px;   
+    height: 55vh;
+    width: 60%;
+    margin: auto;
 }
 
 #historia{
-    display: flex;
-    text-align:center;
-    justify-content: center;
-    align-items: center;
     background-image: url(../imagenes/AcercaNosotros/historia2.jpg);
-    height: 431px;
-    width: 739px;
+    height: 55vh;
+    width: 60%;
+    margin: auto;
 }
 
 #contacto{
-    display: flex;
-    text-align:center;
-    justify-content: center;
-    align-items: center;
     background-image: url(../imagenes/AcercaNosotros/contacto.jpg);
-    height: 431px;
-    width: 739px;
+    height: 55vh;
+    width: 60%;
+    margin: auto;
+}
+
+.overlay_menu{
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 55vh;
+    padding: 15px;
+}
+
+.menu_cat{
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-size: cover;
+     background-position: center;
+     height: 100%;
+     text-align: center;
+     align-content: center;
+     margin: 1%;
 }

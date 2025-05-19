@@ -5,61 +5,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
+    <title>CHATEAU BLANC</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/AcercaNosotros.css">
+    <link rel="stylesheet" href="../css/AcercaNosotros.css">    
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body class="bg-light">
 
     <!--titulo acerca de nosotros-->
 
+    <div class="container-fluid my-3">
+        <a href="../index.html">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+  
+
     <br><section class="banner" style="text-align: center;">
-        <h1 class="page-title">Acerca de nosotros </h1>
+        <h1 class="page-title encabezado">ACERCA DE NOSOTROS </h1>
     </section>
 <!-- Nav tabs -->
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link" href="../index.html">Inicio</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" data-bs-toggle="tab" href="#lugar">Lugar</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#historia">Historia</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#contacto">Contacto</a>
-    </li>
-  </ul>
+     <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#lugar" aria-comtrols="lugar" role="tab">Lugar</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#historia" aria-comtrols="historia" role="tab">Historia</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#contacto" aria-comtrols="contacto" role="tab">Contacto</a>
+            </li>
+        </ul>
+     </div>
   
-  <div class="tab-content">
-    <div class="tab-pane fade show active container-fluid my-5" id="lugar">
-        <a>
-            <h2>Interior del Museo del Acero horno3</h2>
-            <p>Av. Fundidora s/n Museo del Acero A.C, Obrera, 64010 Monterrey, N.L.</p>
-        </a>
-    </div>
-    <div class="tab-pane fade container p-5 my-5" id="historia">
-        <a>
-            <h2>Historia</h2>
-            <p>Desde su inauguración en 2007<br>
-                El Lingote se ha consolidado como un icono culinario en Monterrey.<br>
-                Aquí, celebramos la riqueza de los sabores norestenses combinados con las mejores cocinas del mundo, creando un menú que trasciende fronteras y tiempos. </p>
-        </a>
-    </div>
-    <div class="tab-pane fade container p-5 my-5" id="contacto">
-        <a>
-            <h2>Reserva aquí</h2>
-            <p>(+52) 81-8191-7717<br>(+52) 81-8126-1111<br></p>
-            <h2>Email</h2>
-            <p>info@ChateuBlancRestaurante.com</p>
-            <h2>Instagram</h2>
-            <p>@ChateuBlancRestaurante</p>
-        </a>
-    </div>
-  </div>
-
+     <div class="container-fluid">
+        <div class="tab-content">
+            <div class="tab-pane fade show active my-5 textStyle menu_cat" id="lugar" role="tabpanel">
+                <div class="overlay_menu text-center align-content-center">
+                    <h2>Interior del Museo del Acero horno3</h2>
+                    <p>Av. Fundidora s/n Museo del Acero A.C, Obrera, 64010 Monterrey, N.L.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade my-5 textStyle menu_cat" id="historia" role="tabpanel">
+                <div class="overlay_menu text-center align-content-center">
+                    <h2>Historia</h2>
+                    <p>Desde su inauguración en 2007<br>
+                        El Lingote se ha consolidado como un icono culinario en Monterrey.<br>
+                        Aquí, celebramos la riqueza de los sabores norestenses combinados con las mejores cocinas del mundo, creando un menú que trasciende fronteras y tiempos. </p>
+                </div>
+            </div>
+            <div class="tab-pane fade my-5 textStyle menu_cat" id="contacto" role="tabpanel">
+                <div class="overlay_menu text-center align-content-center">
+                    <h2>Reserva aquí</h2>
+                    <p>(+52) 81-8191-7717<br>(+52) 81-8126-1111<br></p>
+                    <h2>Email</h2>
+                    <p>info@ChateuBlancRestaurante.com</p>
+                    <h2>Instagram</h2>
+                    <p>@ChateuBlancRestaurante</p>
+                </div>
+            </div>
+        </div>
+     </div>
 
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

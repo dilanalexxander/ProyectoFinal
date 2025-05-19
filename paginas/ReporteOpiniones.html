@@ -6,20 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHATEAU BLANC</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/Reportes.css">
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body>
+    <br><section class="banner" style="text-align: center;">
+        <h1 class="page-title encabezado">REPORTE DE OPINIONES</h1>
+    </section> <br>
+
     <div class="container">
-        <H1 class="text-center">REPORTE DE OPINIONES</H1>
-        <form>
+        <form class="mb-3 mt-3">
           <div class="row">
-            <div class="mb-3 col">
+            <div class="mb-3 col textStyle">
                 <label for="fecha_Inicio" class="form-label">Desde:</label>
                 <input type="date" class="form-control" id="fecha_Inicio" name="fecha_Inicio">
             </div>
-            <div class="mb-3 col">
+            <div class="mb-3 col textStyle">
               <label for="fecha_Final" class="form-label">Hasta:</label>
               <input type="date" class="form-control" id="fecha_Final" name="fecha_Final">
           </div>
@@ -27,11 +32,11 @@
             <button type="submit" class="btn btn-primary">Generar Reporte</button>
         </form>
         <div class="row reportes">
-          <div class="col-md">
+          <div class="col-md textStyle">
             <h3>Calificaciones</h3>
             <canvas  id="reporteCalificaciones"></canvas>
           </div>
-          <div class="col-md">
+          <div class="col-md textStyle">
             <h3>Resumen General</h3>
             <canvas  id="reporteEstrellas"></canvas>
           </div>          

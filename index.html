@@ -5,35 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
+    <title>CHATEAU BLANC</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/General.css">
 </head>
 
 <body class="bg-light">
 
   <!-- iniciar sesion-->
-  <div class="container-fluid my-5">
-    <img src="./imagenes/Titulo.jpg" class="mx-auto d-block">
-    <button onclick="window.location.href='./paginas/InicioSesion.html';" class="btn btn-secondary btn-lg float-end">Iniciar Sesión</button>
+  <div class="container-fluid my-5 row">
+    <div class="col-md-9">
+      <img src="./imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogo">
+    </div>
+    <div class="col-md-2 align-content-center d-grid mx-auto">
+      <button onclick="window.location.href='./paginas/InicioSesion.html';" class="btn btn-secondary btn-lg float-end">Iniciar Sesión</button>
+    </div>
   </div>
 
   <!-- Centered nav -->
-  <div class="container-fluid p-5 my-5">
+  <div class="container-fluid p-2 my-2">
     <ul class="nav justify-content-center nav-justified">
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./paginas/AcercaNosotros.html">Acerca de nosotros</a>
+        <a class="nav-link navMenu text-dark" href="./paginas/AcercaNosotros.html">Acerca de nosotros</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./paginas/Menu.html">Menú</a>
+        <a class="nav-link navMenu text-dark" href="./paginas/Menu.html">Menú</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./paginas/Reservacion.html">Reserva</a>
+        <a class="nav-link navMenu text-dark" href="./paginas/Reservacion.html">Reserva</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-dark" href="./paginas/Opiniones.html">Comentarios</a>
+        <a class="nav-link navMenu text-dark" href="./paginas/Opiniones.html">Comentarios</a>
       </li>
     </ul>
   </div>
