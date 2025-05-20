@@ -5,22 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
+    <title>CHATEAU BLANC</title> 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/font-awesome.min.2.css">
     <link rel="stylesheet" href="../css/Opiniones.css"> 
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
+    <link rel="stylesheet" href="../css/Admin.css">
 </head>
 </head>
 
 <body>
     
     <br><section class="banner" style="text-align: center;">
-        <h1 class="page-title">Perfil de Administrador</h1>
+        <h1 class="page-title encabezado">PERFIL DE ADMINISTRADOR</h1>
     </section> <br>
     
 
     <!-- Nav tabs -->
 
+    <div class="container">
     <ul class="nav nav-tabs justify-content-center nav-justified">
         <li class="nav-item">
             <a class="nav-link active" data-bs-toggle="tab" href="#reservaciones">Reservaciones</a>
@@ -42,20 +46,21 @@
             <a class="nav-link" data-bs-toggle="tab" href="#reportes">Reportes</a>
         </li>
     </ul>
+    </div>
 
     
     <div class="tab-content">
         <div class="tab-pane fade show active container" id="reservaciones">
-            <h2 class="text-center">Reservaciones</h2>
+            <h2 class="text-center encabezado2 my-3">Reservaciones</h2>
 
             <div class="text-end">
-                <a href="./AdminReserva.html" class="btn">Editar opciones de reservación</a>
+                <a href="./AdminReserva.html" class="btn btn-md btn-secondary my-2">Editar opciones de reservación</a>
             </div>
 
             <div style="max-height: 50vh; overflow-y: auto;">
-                <table class="table table-hover">
+                <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin">
                     <thead>
-                    <tr>
+                    <tr class="table-dark">
                         <th> </th>
                         <th>Nombre</th>
                         <th>Fecha</th>
@@ -65,85 +70,53 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Ernesto Arredondo</td>
-                        <td>25/05/2025</td>
-                        <td>9:30</td>
-                        <td>8</td>
-                        <td><span class="badge bg-primary">Pendiente</span></td>
+                    <tr class="tableDato" id="resS1" onclick="seleccionCategoria('resS1')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioresS1" name="optradio" value="reservacion1"></td>
+                        <td id="rnomS1">Hugo Hernandez</td>
+                        <td id="rfechaS1">10/05/2025</td>
+                        <td id="rhoraS1">10:30</td>
+                        <td id="rperS1">6</td>
+                        <td><span class="badge bg-success badgeSize" id="rstaS1">Confirmada</span></td>
                     </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Hugo Hernandez</td>
-                        <td>10/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-success">Confirmada</span></td>
+                    <tr class="tableDato" id="resS2" onclick="seleccionCategoria('resS2')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioresS2" name="optradio" value="reservacion2"></td>
+                        <td id="rnomS2">Hugo Hernandez</td>
+                        <td id="rfechaS2">10/05/2025</td>
+                        <td id="rhoraS2">10:30</td>
+                        <td id="rperS2">6</td>
+                        <td><span class="badge bg-success badgeSize" id="rstaS2">Confirmada</span></td>
                     </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Julio Chavez</td>
-                        <td>08/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-danger">Cancelada</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Julio Chavez</td>
-                        <td>08/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-danger">Cancelada</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Julio Chavez</td>
-                        <td>08/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-danger">Cancelada</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Julio Chavez</td>
-                        <td>08/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-danger">Cancelada</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Julio Chavez</td>
-                        <td>08/05/2025</td>
-                        <td>10:30</td>
-                        <td>6</td>
-                        <td><span class="badge bg-danger">Cancelada</span></td>
+                    <tr class="tableDato" id="resS3" onclick="seleccionCategoria('resS3')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioresS3" name="optradio" value="reservacion3"></td>
+                        <td id="rnomS3">Hugo Hernandez</td>
+                        <td id="rfechaS3">10/05/2025</td>
+                        <td id="rhoraS3">10:30</td>
+                        <td id="rperS3">6</td>
+                        <td><span class="badge bg-success badgeSize" id="rstaS3">Confirmada</span></td>
                     </tr>
                     </tbody>
                 </table>
             </div> <br>
 
             <div>
-                <button class="btn btn-lg float-start">Cancelar</button>
-                <button class="btn btn-lg float-start">Confirmar</button>
-                <a href="./ReservacionAdmi.html" class="btn btn-lg float-end">Nueva Reservación</a>
+                <button class="btn btn-lg float-start btn-secondary mx-3">Cancelar</button>
+                <button class="btn btn-lg float-start btn-primary mx-3">Confirmar</button>
+                <a href="./ReservacionAdmi.html" class="btn btn-lg float-end btn-primary">Nueva Reservación</a>
             </div>
 
         </div>
 
         <div class="tab-pane fade container" id="menu">
-            <h2 class="text-center">Menú</h2>
+            <h2 class="text-center encabezado2 my-3">Menú</h2>
 
             <div class="text-end">
-                <a href="./AdminCategoria.html" class="btn">Editar Categorias</a>
+                <a href="./AdminCategoria.html" class="btn btn-md btn-secondary my-2">Editar Categorias</a>
             </div>
 
             <div style="max-height: 50vh; overflow-y: auto;">
-                <table class="table table-hover">
+                <table class="table-hover table justify-content-center align-items-center text-center textStyleAdmin">
                     <thead>
-                        <tr>
+                        <tr class="table-dark">
                             <th> </th>
                             <th>Categoria</th>
                             <th>Nombre</th>
@@ -154,80 +127,54 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
+                        <tr class="tableDato" id="menS1" onclick="seleccionCategoria('menS1')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiomenS1" name="optradio" value="reservacion1"></td>
+                            <td id="mcatS1">ensaladas</td>
+                            <td id="mplaS1">Ensañada de pera</td>
+                            <td id="mpreS1">185</td>
+                            <td id="mdesS1">Lechugas mixtas, peras a la parrilla</td>
+                            <td class="catfoto">
+                                <img src="../imagenes/menu/ENSALADA.png" id="mfotoS1" class="img-thumbnail" alt="..." style="height: 200px;">
+                            </td>
                         </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
+                        <tr class="tableDato" id="menS2" onclick="seleccionCategoria('menS2')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiomenS2" name="optradio" value="reservacion1"></td>
+                            <td id="mcatS2">ensaladas</td>
+                            <td id="mplaS2">Ensañada de pera</td>
+                            <td id="mpreS2">185</td>
+                            <td id="mdesS2">Lechugas mixtas, peras a la parrilla</td>
+                            <td class="catfoto">
+                                <img src="../imagenes/menu/ENSALADA.png" id="mfotoS2" class="img-thumbnail" alt="..." style="height: 200px;">
+                            </td>
                         </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                            <td>Ensaladas</td>
-                            <td>Ensañada de pera</td>
-                            <td>185</td>
-                            <td>Lechugas mixtas, peras a la parrilla</td>
-                            <td>imagen</td>
+                        <tr class="tableDato" id="menS3" onclick="seleccionCategoria('menS3')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiomenS3" name="optradio" value="reservacion1"></td>
+                            <td id="mcatS3">ensaladas</td>
+                            <td id="mplaS3">Ensañada de pera</td>
+                            <td id="mpreS3">185</td>
+                            <td id="mdesS3">Lechugas mixtas, peras a la parrilla</td>
+                            <td class="catfoto">
+                                <img src="../imagenes/menu/ENSALADA.png" id="mfotoS3" class="img-thumbnail" alt="..." style="height: 200px;">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div> <br>
 
             <div>
-                <button class="btn btn-lg float-start">Eliminar Platillo</button>
-                <a href="./EditarPlato.html" class="btn btn-lg float-start">Editar Platillo</a>
-                <a href="./EditarPlato.html" class="btn btn-lg float-end">Nuevo Platillo</a>
+                <button class="btn btn-lg float-start btn-secondary mx-3">Eliminar Platillo</button>
+                <a href="./EditarPlato.html" class="btn btn-lg float-start btn-primary mx-3">Editar Platillo</a>
+                <a href="./EditarPlato.html" class="btn btn-lg float-end btn-primary">Nuevo Platillo</a>
             </div>
         </div>
 
         <div class="tab-pane fade container" id="usuarios">
-            <h2 class="text-center">Usuarios</h2>
+            <h2 class="text-center encabezado2 my-3">Usuarios</h2>
 
             <div style="max-height: 50vh; overflow-y: auto;">
-                <table class="table table-hover">
+                <table class="table-hover table justify-content-center align-items-center text-center textStyleAdmin">
                     <thead>
-                    <tr>
+                    <tr class="table-dark">
                         <th> </th>
                         <th>Tipo de usuario</th>
                         <th>Nombre de usuario</th>
@@ -238,89 +185,50 @@
                     </thead>
                     
                     <tbody>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Cliente</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
+                    <tr class="tableDato" id="userS1" onclick="seleccionCategoria('userS1')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiouserS1" name="optradio" value="reservacion1"></td>
+                        <td id="utipS1">Recepcionista</td>
+                        <td id="uuserS1">juan28</td>
+                        <td id="unameS1">Juan Alvarez</td>
+                        <td id="utelS1">8117443508</td>
+                        <td id="upasS1">contraeña123</td>
                     </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Cliente</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
+                    <tr class="tableDato" id="userS2" onclick="seleccionCategoria('userS2')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiouserS2" name="optradio" value="reservacion1"></td>
+                        <td id="utipS2">Cliente</td>
+                        <td id="uuserS2">juan28</td>
+                        <td id="unameS2">Juan Alvarez</td>
+                        <td id="utelS2">8117443508</td>
+                        <td id="upasS2">contraeña123</td>
                     </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Cliente</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Cliente</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Recepcionista</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Cliente</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
-                    </tr>
-                    <tr>
-                        <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="reservacion1"></td>
-                        <td>Administrador</td>
-                        <td>juan28</td>
-                        <td>Juan Alvarez</td>
-                        <td>8117443508</td>
-                        <td>contraeña123</td>
+                    <tr class="tableDato" id="userS3" onclick="seleccionCategoria('userS3')">
+                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="radiouserS3" name="optradio" value="reservacion1"></td>
+                        <td id="utipS3">Administrador</td>
+                        <td id="uuserS3">juan28</td>
+                        <td id="unameS3">Juan Alvarez</td>
+                        <td id="utelS3">8117443508</td>
+                        <td id="upasS3">contraeña123</td>
                     </tr>
                     </tbody>
                 </table>
             </div> <br>
             <div>
-                <button class="btn btn-lg float-start">Eliminar Usuario</button>
-                <a href="./NuevoUsuario.html" class="btn btn-lg float-start">Editar Usuario</a>
-                <a href="./NuevoUsuario.html" class="btn btn-lg float-end">Nuevo Usuario</a>
+                <button class="btn btn-lg float-start btn-secondary mx-3">Eliminar Usuario</button>
+                <a href="./NuevoUsuario.html" class="btn btn-lg float-start btn-primary mx-3">Editar Usuario</a>
+                <a href="./NuevoUsuario.html" class="btn btn-lg float-end btn-primary mx-3">Nuevo Usuario</a>
             </div>
 
         </div>
 
         <div class="tab-pane fade container" id="opiniones">
-            <h2 class="text-center">Opiniones</h2>
+            <h2 class="text-center encabezado2 my-3">Opiniones</h2>
             <div style="max-height: 50vh; overflow-y: auto;">
-            <table class="table table-borderless">
-                <thead>
-                  <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th> </th>
-                  </tr>
-                </thead>
+            <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin2">
                 <tbody>
-                  <tr>
-                    <td><input type="radio" class="form-check-input" id="radio1" name="optradio" value="opinion1"></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
-                    <td class="estrellas_O">
+                  <tr class="tableDato" id="opS1" onclick="seleccionCategoria('opS1')">
+                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioopS1" name="optradio" value="opinion1"></td>
+                    <td class="comentario_O" id="optxtS1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                    <td class="estrellas_O" id="ostarS1">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -328,25 +236,25 @@
                         <span class="fa fa-star"></span>
                     </td>
                   </tr>
-                  <tr>
-                    <td><input type="radio" class="form-check-input" id="radio2" name="optradio" value="opinion2"></td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
-                    <td class="estrellas_O">
+                  <tr class="tableDato" id="opS2"  onclick="seleccionCategoria('opS2')">
+                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioopS2" name="optradio" value="opinion1"></td>
+                    <td class="comentario_O" id="optxtS2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                    <td class="estrellas_O" id="ostarS2">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </td>
                   </tr>
-                  <tr>
-                    <td><input type="radio" class="form-check-input" id="radio3" name="optradio" value="opinion3"></td>
-                    <td class="comentario_O">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
-                    <td class="estrellas_O">
+                  <tr class="tableDato" id="opS3"  onclick="seleccionCategoria('opS3')">
+                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="radioopS3" name="optradio" value="opinion1"></td>
+                    <td class="comentario_O" id="optxtS3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse enim dolore perspiciatis mollitia consectetur quisquam accusantium voluptatum, natus sapiente numquam, voluptatem ullam? Natus id, aliquam iste ullam ad nihil quisquam.</td>
+                    <td class="estrellas_O" id="ostarS3">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </td>
                   </tr>
@@ -354,7 +262,7 @@
               </table>
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-lg ">Eliminar Opinión</button>
+                <button class="btn btn-lg btn-secondary my-3">Eliminar Opinión</button>
             </div>
         </div>
 
@@ -380,5 +288,6 @@
 
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/font-awesome.min.js"></script>
+    <script src="../js/Categoria.js"></script>
 </body>
 </html>

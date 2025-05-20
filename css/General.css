@@ -6,6 +6,14 @@
     font-size: 90px;
 }
 
+.encabezado2{
+     font-family: "Playfair", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 50px;
+}
+
 .textStyle, .btn, .nav-link, .card-title{
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;

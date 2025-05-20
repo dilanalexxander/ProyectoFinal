@@ -8,19 +8,21 @@
     <title>CHATEAU BLANC</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/Admin.css">
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body class="bg-light">
 
     <br><section class="banner" style="text-align: center;">
-        <h1 class="page-title">RESERVAS </h1>
+        <h1 class="page-title encabezado">RESERVAS </h1>
     </section> <br>
 
     <div class="container text-center">
 
       <div class="row align-items-center">
         <div class="col-md-6">
-          <table class="table justify-content-center align-items-center text-center">
+          <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin">
             <thead>
               <tr class="table-dark">
                 <th scope="col"></th>
@@ -28,26 +30,26 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="tableDato">
-                <td class="horaselect">
+              <tr class="tableDato" id="horaS1" onclick="seleccionCategoria('horaS1')">
+                <td class="horaselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioHora" id="radioHoraS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioHora" id="radiohoraS1" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="hora">10:00</td>
               </tr>
-              <tr class="tableDato">
-                <td class="horaselect">
+              <tr class="tableDato" id="horaS2" onclick="seleccionCategoria('horaS2')">
+                <td class="horaselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioHora" id="radioHoraS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioHora" id="radiohoraS2" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="hora">10:15</td>
               </tr>
-              <tr class="tableDato">
-                <td class="horaselect">
+              <tr class="tableDato" id="horaS3" onclick="seleccionCategoria('horaS3')">
+                <td class="horaselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioHora" id="radioHoraS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioHora" id="radiohoraS3" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="hora">10:30</td>
@@ -56,13 +58,13 @@
           </table>
           
           <div class="d-flex justify-content-center align-items-center tButtons">
-            <button type="button" onclick="window.location.href='AgregarHoras.html'" class="btn btn-secondary btn-lg " style="margin-right: 100px">Agregar Hora</button>
+            <button type="button" onclick="window.location.href='AgregarHoras.html'" class="btn btn-primary btn-lg " style="margin-right: 100px">Agregar Hora</button>
             <button type="button" class="btn btn-secondary btn-lg">Eliminar Hora</button>
           </div>
         </div>
         
         <div class="col-md-6">
-          <table class="table justify-content-center align-items-center text-center">
+          <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin">
             <thead>
               <tr class="table-dark">
                 <th scope="col"></th>
@@ -70,26 +72,26 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="tableDato">
-                <td class="cantselect">
+              <tr class="tableDato" id="perS1" onclick="seleccionCategoria('perS1')">
+                <td class="cantselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioCant" id="radioCantS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioCant" id="radioperS1" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="cantidad">1</td>
               </tr>
-              <tr class="tableDato">
-                <td class="cantselect">
+              <tr class="tableDato" id="perS2" onclick="seleccionCategoria('perS2')">
+                <td class="cantselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioCant" id="radioCantS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioCant" id="radioperS2" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="cantidad">2</td>
               </tr>
-              <tr class="tableDato">
-                <td class="cantselect">
+              <tr class="tableDato" id="perS3" onclick="seleccionCategoria('perS3')">
+                <td class="cantselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radioCant" id="radioCantS" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="radioCant" id="radioperS3" value="" aria-label="...">
                   </div>
                 </td>
                 <td class="cantidad">3</td>
@@ -98,7 +100,7 @@
           </table>
           
           <div class="d-flex justify-content-center align-items-center tButtons">
-            <button type="button" onclick="window.location.href='AgregarHoras.html'" class="btn btn-secondary btn-lg " style="margin-right: 100px">Agregar Cantidad</button>
+            <button type="button" onclick="window.location.href='AgregarHoras.html'" class="btn btn-primary btn-lg " style="margin-right: 100px">Agregar Cantidad</button>
             <button type="button" class="btn btn-secondary btn-lg">Eliminar Cantidad</button>
           </div>
         </div>
@@ -108,4 +110,5 @@
 
     <script src="../js/popper.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
+    <script src="../js/Categoria.js"></script>
 </body>

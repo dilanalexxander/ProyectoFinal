@@ -11,3 +11,29 @@
     text-align: center;
     vertical-align: middle;
 }
+
+.badgeSize{
+    font-size: 1.1em;
+}
+
+.textStyleAdmin{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: 19px;
+}
+
+.textStyleAdmin2{
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: 17px;
+}
+
+.comentario_O{
+    width: 70%;
+}

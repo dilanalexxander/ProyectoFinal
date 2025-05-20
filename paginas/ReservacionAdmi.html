@@ -7,21 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHATEAU BLANC</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/Admin.css">
+    <link rel="stylesheet" href="../css/Fonts.css">
+    <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body>
+
+    <H1 class="text-center encabezado">RESERVACIÓN</H1>
+
     <div class="container">
-        <H1 class="text-center">RESERVACIÓN</H1>
+        
         <form>
-            <div class="mb-3">
+            <div class="mb-3 mt-3 textStyle">
                 <label for="Nombre" class="form-label">Nombre de la reservación:</label>
                 <input type="text" class="form-control" placeholder="Introduce el Nombre" id="Nombre" name="NombreR">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mt-3 textStyle">
                 <label for="FechaR" class="form-label">Fecha de reservación:</label>
                 <input type="date" class="form-control" id="fechaR" name="fechaR">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mt-3 textStyle">
                 <label for="PersonasR" class="form-label">Cantidad de personas:</label>
                 <select class="form-select" aria-label="Cantidad de personas">
                 <option selected disabled>SELECCIONE LA CANTIDAD DE PERSONAS</option>
@@ -30,7 +36,7 @@
                 <option value="3">3</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mt-3 textStyle">
                 <label for="HoraR" class="form-label">Hora de reservación:</label>
                 <select class="form-select" aria-label="Hora de reservación">
                 <option selected disabled>SELECCIONE LA HORA</option>
@@ -39,7 +45,7 @@
                 <option value="3">10:30</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Reservar</button>
+            <button type="submit" class="btn btn-primary btn-lg">Reservar</button>
           </form>
     </div>
     
