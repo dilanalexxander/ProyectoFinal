@@ -46,10 +46,6 @@
         <div class="mb-3 mt-3 textStyle">
             <label for="utipo" class="form-label">Tipo de usuario</label>
             <select class="form-select" id="utipo">
-                <option value="" selected disabled hidden>Selecciona tipo de usuario</option>
-                <option>Usuario</option>
-                <option>Recepcionista</option>
-                <option>Administrador</option>
             </select>
         </div>
 
@@ -59,6 +55,37 @@
         </div>
         
     </div>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+  fetch('http://localhost:3000/api/tipousuarios')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data)) {
+        throw new Error("La respuesta no es una lista");
+      }
+
+      const select = document.getElementById('utipo');
+      select.innerHTML = '<option value="">Seleccione un tipo...</option>';
+
+      data.forEach(tipo => {
+        const option = document.createElement('option');
+        option.value = tipo.TipoID;
+        option.textContent = tipo.TipoUsuario;
+        select.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error al cargar tipos de usuario:', error);
+      document.getElementById('utipo').innerHTML = '<option value="">Error al cargar</option>';
+    });
+});
+    </script>
 
     <script src="../js/popper.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
