@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATEU BLANC</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">    
+    <title>CHATEAU BLANC</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/Fonts.css">
     <link rel="stylesheet" href="../css/General.css">
 </head>
 
 <body class="bg-light">
+    <?php $userID = $_GET['user_id'];?>
+
     <div class="container-fluid my-3">
         <a href="../paginas/PerfilUsuario.html">
             <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
@@ -19,49 +21,48 @@
     </div>
 
     <br><section class="banner" style="text-align: center;">
-        <h1 class="page-title encabezado" id="infoUsuario">EDITAR INFORMACIÓN</h1>
+        <h1 class="page-title encabezado">EDITAR INFORMACIÓN</h1>
     </section> <br>
 
-    <div class="container">
-        <div class="mb-3 mt-3 textStyle">
-            <label for="uname" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="uname" value="Introduce el nombre" name="uname" required>
-        </div>
-
-        <div class="mb-3 mt-3 textStyle">
-            <label for="uuser" class="form-label">Nombre de usuario:</label>
-            <input type="text" class="form-control" id="uuser" value="Introduce el nombre de usuario" name="uuser" required>
-        </div>
-
-        <div class="mb-3 mt-3 textStyle">
-            <label for="utel" class="form-label">Telefono:</label>
-            <input type="text" class="form-control" id="utel" value="Introduce el telefono" name="utel" required>
-        </div>
-
-        <div class="mb-3 mt-3 textStyle">
-            <label for="upass" class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" id="upass" Value="Introduce la contraseña" name="upass" required>
-        </div>
-
-        <?php 
+    <?php 
             try{
                 require_once('../php/bd_conexion.php');
-                $sql = "SELECT * FROM tipousuario";
+                $sql = "SELECT * FROM usuarios WHERE UsuarioID =" .$userID;
                 $resultado = $conn->query($sql);
             } catch(\Exception $e){
                 echo $e->getMessage();
             }
         ?> 
 
+    <div class="container">
         <div class="mb-3 mt-3 textStyle">
-            <label for="utipo" class="form-label">Tipo de usuario</label>
-            <select class="form-select" id="utipo">
-                <option value="default" selected disabled hidden>Selecciona tipo de usuario</option>
-                <?php      
-                    while($usuarios = $resultado->fetch_assoc()){ echo "<option value='" . $usuarios['TipoID'] . "'>" . $usuarios['NombreTipo'] . "</option>";}
-                ?>
-            </select>
+            <label for="uname" class="form-label">Nombre:</label>
+            <?php
+                echo "<input type="text" class="form-control" id="uname" placeholder="Introduce el nombre" name="uname" required value=". $resultado['Nombre'] .">";
+            ?>
         </div>
+
+        <div class="mb-3 mt-3 textStyle">
+            <label for="uuser" class="form-label">Nombre de usuario:</label>
+            <?php
+                echo "<input type="text" class="form-control" id="uuser" placeholder="Introduce el nombre de usuario" name="uuser" required value=". $resultado['NombreUsuario'] .">";
+            ?>
+        </div>
+
+        <div class="mb-3 mt-3 textStyle">
+            <label for="utel" class="form-label">Telefono:</label>
+            <?php
+                echo "<input type="text" class="form-control" id="utel" placeholder="Introduce el telefono" name="utel" required value=". $resultado['Telefono'] .">";
+            ?>
+        </div>
+
+        <div class="mb-3 mt-3 textStyle">
+            <label for="upass" class="form-label">Contraseña:</label>
+            <?php
+                echo "<input type="password" class="form-control" id="upass" placeholder="Introduce la contraseña" name="upass" required value=". $resultado['Contrasena'] .">";
+            ?>
+        </div>
+
         <?php
             $conn->close();
         ?>

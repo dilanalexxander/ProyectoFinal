@@ -24,18 +24,6 @@
     background-image: url(../imagenes/menu/ENTRADAS.png);
 }
 
-#menu_ensalada{
-    background-image: url(../imagenes/menu/ENSALADA.png);
-}
-
-#menu_sopa{
-    background-image: url(../imagenes/menu/SOPA.png);
-}
-
-#menu_plato{
-    background-image: url(../imagenes/menu/PLATO.png);
-}
-
 
 .precio{
     text-align: right;
