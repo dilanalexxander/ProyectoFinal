@@ -51,16 +51,13 @@
                     $hora = "hora" . $horas['HorarioID'];
                     $horaCat =  "radio" .$hora;   
                 ?>
-              <tr class="tableDato" id="<?php . $hora . ?>" onclick="seleccionCategoria('<?php . $hora . ?>')">
-                <td>
-                    <input type="hidden" id="horaId" name="horaId" value="<?php . $horas['HorarioID'] . ?>">
-                </td>
+              <tr class="tableDato" id="<?php echo $hora; ?>" onclick="seleccionCategoria('<?php echo $hora; ?>')">
                 <td class="horaselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="<?php . $horaCat . ?>" id="<?php . $horaCat . ?>" aria-label="...">
+                      <input class="form-check-input" type="radio" name="<?php echo $horaCat; ?>" id="<?php echo $horaCat; ?>" aria-label="...">
                   </div>
                 </td>
-                <td class="hora"><?php . $horas['Hora'] . ?></td>
+                <td class="hora"><?php echo $horas['Hora']; ?></td>
               </tr>
               <?php } ?>
             </tbody>
@@ -85,16 +82,14 @@
                     $cant = "cantidad" . $cantidades['CantidadID'];
                     $cantCat =  "radio" .$cant;   
                 ?>
-              <tr class="tableDato" id="<?php . $cant . ?>" onclick="seleccionCategoria('<?php . $cant . ?>')">
-                <td>
-                    <input type="hidden" id="cantId" name="cantId" value="<?php . $cantidades['CantidadID'] . ?>">
-                </td>
+              <tr class="tableDato" id="<?php echo $cant; ?>" onclick="seleccionCategoria('<?php echo $cant;?>')">
+
                 <td class="cantselect catselect p-5">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="<?php . $cantCat . ?>" id="<?php . $cantCat . ?>" value="" aria-label="...">
+                      <input class="form-check-input" type="radio" name="<?php echo $cantCat; ?>" id="<?php echo $cantCat;?>" value="<?php echo $cantCat;?>" aria-label="...">
                   </div>
                 </td>
-                <td class="cantidad"><?php . $cantidades['CantidadPersonas'] . ?></td>
+                <td class="cantidad"><?php echo $cantidades['CantidadPersonas']; ?></td>
               </tr>
               <?php } ?>
             </tbody>

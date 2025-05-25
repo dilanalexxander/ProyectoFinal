@@ -41,23 +41,20 @@
             </thead>
             <tbody id="tablaCategoria">
                  <?php while($categorias = $resultado->fetch_assoc()){
-                    $cat = "cat" . $categorias['CategoriaID'];
+                    $cat = "cat-" . $categorias['CategoriaID'];
                     $radioCat =  "radio" .$cat;   
                 ?>
 
-                <tr class="tableDato" id="<?php . $cat . ?>" onclick="seleccionCategoria('<?php . $cat . ?>')">
-                    <td>
-                        <input type="hidden" id="catId" name="catId" value="<?php . $categorias['CategoriaID'] . ?>">
-                    </td>
+                <tr class="tableDato" id="<?php echo $cat; ?>" onclick="seleccionCategoria('<?php echo $cat; ?>')">
                     <td class="catselect p-5">
                         <div class="form-check align-content-center">
-                            <input class="form-check-input" type="radio" name="<?php . $radioCat . ?>" id="<?php . $radioCat . ?>"  aria-label="...">
+                            <input class="form-check-input" type="radio" name="<?php echo $radioCat; ?>" id="<?php echo $radioCat; ?>">
                         </div>
                     </td>
-                    <td class="catnombre"><?php . $categorias['Nombre'] . ?></td>
+                    <td class="catnombre"><?php echo $categorias['Nombre'];?></td>
                     <td class="catfoto">
                         <?php $urlC = "../imagenes/menu/". $categorias['Foto']; ?>
-                        <img src="<?php . $urlC .?>" class="img-thumbnail" alt="..." style="height: 200px;">
+                        <img src="<?php echo $urlC;?>" class="img-thumbnail" alt="..." style="height: 200px;">
                     </td>
                 </tr>
                 <?php }?>
@@ -70,8 +67,8 @@
         ?>
       
         <div class="d-flex justify-content-center align-items-center tButtons">
-            <button type="button" onclick="window.location.href='AgregarCategoria.php'" class="btn btn-primary btn-lg " style="margin-right: 100px">Nuevo</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="eliminarCategoria('catradio')">Eliminar</button>
+            <button type="button" onclick="window.location.href='AgregarCategoria.html'" class="btn btn-primary btn-lg " style="margin-right: 100px">Nuevo</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="eliminarCategoria()">Eliminar</button>
         </div>
         
     </div>

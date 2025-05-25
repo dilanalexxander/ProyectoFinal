@@ -35,32 +35,25 @@
         ?> 
 
     <div class="container">
+        <?php $usuario = $resultado->fetch_assoc(); ?>
         <div class="mb-3 mt-3 textStyle">
             <label for="uname" class="form-label">Nombre:</label>
-            <?php
-                echo "<input type="text" class="form-control" id="uname" placeholder="Introduce el nombre" name="uname" required value=". $resultado['Nombre'] .">";
-            ?>
+           <input type="text" class="form-control" id="uname" placeholder="Introduce el nombre" name="uname" required value="<?php echo $usuario['Nombre']; ?>">
         </div>
 
         <div class="mb-3 mt-3 textStyle">
             <label for="uuser" class="form-label">Nombre de usuario:</label>
-            <?php
-                echo "<input type="text" class="form-control" id="uuser" placeholder="Introduce el nombre de usuario" name="uuser" required value=". $resultado['NombreUsuario'] .">";
-            ?>
+            <input type="text" class="form-control" id="uuser" placeholder="Introduce el nombre de usuario" name="uuser" required value="<?php echo $usuario['NombreUsuario']; ?>">
         </div>
 
         <div class="mb-3 mt-3 textStyle">
             <label for="utel" class="form-label">Telefono:</label>
-            <?php
-                echo "<input type="text" class="form-control" id="utel" placeholder="Introduce el telefono" name="utel" required value=". $resultado['Telefono'] .">";
-            ?>
+            <input type="text" class="form-control" id="utel" placeholder="Introduce el telefono" name="utel" required value="<?php echo $usuario['Telefono']; ?>">
         </div>
 
         <div class="mb-3 mt-3 textStyle">
             <label for="upass" class="form-label">Contraseña:</label>
-            <?php
-                echo "<input type="password" class="form-control" id="upass" placeholder="Introduce la contraseña" name="upass" required value=". $resultado['Contrasena'] .">";
-            ?>
+            <input type="password" class="form-control" id="upass" placeholder="Introduce la contraseña" name="upass" required value="<?php echo $usuario['Contrasena']; ?>">
         </div>
 
         <?php

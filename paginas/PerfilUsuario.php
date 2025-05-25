@@ -30,27 +30,23 @@
     <!-- Nav tabs -->
     
     <div class="container">
-    <ul class="nav nav-tabs justify-content-center nav-justified">
-        <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#info">Información del perfil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#reservaciones">Reservaciones</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#opiniones">Opiniones</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./Reservacion.html">Reservar</a>
-        </li>
-    </ul>
+        <ul class="nav nav-tabs justify-content-center nav-justified">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#info">Información del perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#reservaciones">Reservaciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#opiniones">Opiniones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Reservacion.html">Reservar</a>
+            </li>
+        </ul>
     </div>
-    
-    <div class="container my-5">
-        <div class="tab-content textStyle">
-         
-            <div class="tab-pane fade show active container-fluid my-5" id="info">
-              <?php 
+
+     <?php 
                   try{
                       require_once('../php/bd_conexion.php');
                       $sqlU = "SELECT * FROM usuarios WHERE UsuarioID =" .$userID;
@@ -58,33 +54,43 @@
                   } catch(\Exception $e){
                       echo $e->getMessage();
                   }
-              ?> 
-                <label for="uname" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Nombre del usuario" name="uname" disabled value=".<?php $resultadoU['Nombre'] .?>"><br>
-                <label for="uuser" class="form-label">Nombre de usuario:</label>
-                <input type="text" class="form-control" id="uuser" placeholder="Nombre de usuario" name="uuser" disabled value="<?php . $resultadoU['NombreUsuario'] . ?>" 
-                ><br>
-                <label for="utel" class="form-label">Telefono:</label>
-                <input type="text" class="form-control" id="utel" placeholder="Telefono del usuario" name="utel" disabled value="<?php . $resultadoU['Telefono'] . ?>"><br>
-                <label for="upass" class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" id="upass" placeholder="Contraseña del usuario" name="upass" disabled value="<?php . $resultadoU['Contrasena'] . ?>"><br>
-                <div class="d-flex justify-content-center align-items-center">
-                    <button onclick="window.location.href='./EditarUsuario.php?user_id='<?php. $userID .?>'';" class="btn btn-secondary btn-lg float-end">Editar</button>
-                </div>
-                <?php
-                  $conn->close();
-                ?>
-            </div>
-            <div class="tab-pane fade container-fluid my-5" id="reservaciones">
-                 <?php 
-                  try{
+
+                   try{
                       require_once('../php/bd_conexion.php');
-                      $sqlR = "SELECT reservacion.Fecha, horarioreservacion.Hora, cantidadreservacion.CantidadPersonas AS Cantidad, estadoreservacion.EstadoReservacion AS Estado FROM reservacion INNER JOIN horarioreservacion ON reservacion.HorarioID = horarioreservacion.HorarioID INNER JOIN cantidadreservacion ON reservacion.CantidadID = cantidadreservacion.CantidadID INNER JOIN reservacion.EstadoID = estadoreservacion.EstadoID WHERE reservacion.UsuarioID = " .$userID;
+                      $sqlR = "SELECT reservacion.Fecha, horarioreservacion.Hora, cantidadreservacion.CantidadPersonas AS Cantidad, estadoreservacion.EstadoReservacion AS Estado FROM reservacion INNER JOIN horarioreservacion ON reservacion.HorarioID = horarioreservacion.HorarioID INNER JOIN cantidadreservacion ON reservacion.CantidadID = cantidadreservacion.CantidadID INNER JOIN estadoreservacion ON reservacion.EstadoID = estadoreservacion.EstadoID WHERE reservacion.UsuarioID = " .$userID;
                       $resultadoR = $conn->query($sqlR);
                   } catch(\Exception $e){
                       echo $e->getMessage();
                   }
-              ?>
+
+                  try{
+                        require_once('../php/bd_conexion.php');
+                        $sqlO = "SELECT opinion.Comentario, opinion.Calificacion FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1 AND reservacion.UsuarioID =" . $userID;
+                        $resultadoO = $conn->query($sqlO);
+                  } catch(\Exception $e){
+                      echo $e->getMessage();
+                  }
+    ?> 
+
+    <div class="container my-5">
+        <div class="tab-content textStyle">
+            <div class="tab-pane fade show active container-fluid my-5" id="info">
+                <?php $userU = $resultadoU->fetch_assoc(); ?>
+
+                <label for="uname" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Nombre del usuario" name="uname" disabled value="<?php echo $userU['Nombre']; ?>"><br>
+                <label for="uuser" class="form-label">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="uuser" placeholder="Nombre de usuario" name="uuser" disabled value="<?php echo $userU['NombreUsuario']; ?>"><br>
+                <label for="utel" class="form-label">Telefono:</label>
+                <input type="text" class="form-control" id="utel" placeholder="Telefono del usuario" name="utel" disabled value="<?php echo $userU['Telefono']; ?>"><br>
+                <label for="upass" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" id="upass" placeholder="Contraseña del usuario" name="upass" disabled value="<?php echo $userU['Contrasena']; ?>"><br>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button onclick="window.location.href='./EditarUsuario.php?user_id='<?php echo $userID ;?>'" class="btn btn-secondary btn-lg float-end">Editar</button>
+                </div>
+            </div>
+
+            <div class="tab-pane fade container-fluid my-5" id="reservaciones">
                 <div class="container mt-3">
                     <h2>Reservaciones</h2>
                     <div style="max-height: 50vh; overflow-y: auto;">   
@@ -99,91 +105,76 @@
                           </tr>
                         </thead>
                         <tbody>
-                             <?php while($reservaciones = $resultadoO->fetch_assoc()){ ?>
+                             <?php while($reservaciones = $resultadoR->fetch_assoc()){ ?>
                                 <tr class="tableDato">
-                                    <td><?php echo $reservaciones['Fecha'] ?></td>
-                                    <td><?php echo $reservaciones['Hora'] ?></td>
-                                    <td><?php echo $reservaciones['Cantidad'] ?></td>
+                                    <td><?php echo $reservaciones['Fecha']; ?></td>
+                                    <td><?php echo $reservaciones['Hora']; ?></td>
+                                    <td><?php echo $reservaciones['Cantidad']; ?></td>
                                     <?php switch ($reservaciones['Estado']) {
                                         case "Pendiente":
-                                            echo "<td><span class="badge bg-primary badgeSize">Pendiente</span></td>";
+                                            echo "<td><span class='badge bg-primary badgeSize'>Pendiente</span></td>";
                                             break;
                                         case "Confirmada":
-                                            echo "<td><span class="badge bg-success badgeSize">Confirmada</span></td>";
+                                            echo "<td><span class='badge bg-success badgeSize'>Confirmada</span></td>";
                                             break;
                                         case "Pendiente":
-                                            echo "<td><span class="badge bg-danger badgeSize">Cancelada</span></td>";
+                                            echo "<td><span class='badge bg-danger badgeSize'>Cancelada</span></td>";
                                             break;
                                     } ?>
                                     <td>
-                                    <button type="button" class="btn btn-primary btn-md" id="btnConfirmar1">Confirmar</button>
-                                    <button type="button" class="btn btn-secondary btn-md" id="btnCancelar1">Cancelar</button>
+                                    <button type="button" class="btn btn-primary btn-md">Confirmar</button>
+                                    <button type="button" class="btn btn-secondary btn-md">Cancelar</button>
                                     </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                       </table>
                     </div>  
-                </div>
-               <?php
-                  $conn->close();
-                ?>   
+                </div> 
             </div>
+
             <div class="tab-pane fade container my-5" id="opiniones">
-                <?php 
-                  try{
-                        require_once('../php/bd_conexion.php');
-                        $sqlO = "SELECT opinion.Comentario, opinion.Calificacion FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1 AND reservacion.UsuarioID =" . $userID;
-                        $resultadoO = $conn->query($sqlO);
-                  } catch(\Exception $e){
-                      echo $e->getMessage();
-                  }
-              ?>
-              <div style="max-height: 50vh; overflow-y: auto;">
-                <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin2">
-                    <tbody>
-                        <?php while($opiniones = $resultadoO->fetch_assoc()){ 
-                            $op = "op" . $opiniones['OpinionID'];
-                            $radioOp =  "radio" .$op;   
-                        ?>
-                      <tr class="tableDato" id="<?php . $cat . ?>" onclick="seleccionCategoria('<?php . $op . ?>')">
-                        <td>
-                            <input type="hidden" id="opId" name="opId" value="<?php . $opiniones['OpinionID'] . ?>">
-                        </td>
-                        <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php . $radioOp . ?>" name="<?php . $radioOp . ?>"></td>
-                        <td class="comentario_O"  id="optxtS1"><?php . $opiniones['Comentario'] . ?></td>
-                        <td class="estrellas_O">
-                             <?php 
-                                $estrellas = $opiniones['Calificacion'] - 1;
-                                for($x = 0; $x < 5; $x++){
-                                    if($estrellas <= $x){
-                                        echo "<span class="fa fa-star checked"></span>";
-                                    }else{
-                                        echo "<span class="fa fa-star"></span>";
-                                    }
-                                }
+                <div style="max-height: 50vh; overflow-y: auto;">
+                    <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin2">
+                        <tbody>
+                            <?php while($opiniones = $resultadoO->fetch_assoc()){ 
+                                $op = "op" . $opiniones['OpinionID'];
+                                $radioOp =  "radio" .$op;   
                             ?>
-                        </td>
-                      </tr>
-                      <?php } ?>
-                    </tbody>
-                  </table>
-              </div>
-               <?php
-                  $conn->close();
-                ?> 
-               <div class="d-flex justify-content-center">
-                <button class="btn btn-lg btn-primary my-3 mx-3">Agregar Opinión</button>
-                <button class="btn btn-lg btn-secondary my-3 mx">Eliminar Opinión</button>
+                        <tr class="tableDato" id="<?php echo $op; ?>" onclick="seleccionCategoria('<?php echo $op; ?>')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioOp; ?>" name="<?php echo $radioOp; ?>"></td>
+                            <td class="comentario_O"  id="optxtS1"><?php echo $opiniones['Comentario']; ?></td>
+                            <td class="estrellas_O">
+                                <?php 
+                                    $estrellas = $opiniones['Calificacion'] - 1;
+                                    for($x = 0; $x < 5; $x++){
+                                        if($x <= $estrellas){
+                                            echo "<span class='fa fa-star checked'></span>";
+                                        }else{
+                                            echo "<span class='fa fa-star'></span>";
+                                        }
+                                    }
+                                ?>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-lg btn-primary my-3 mx-3">Agregar Opinión</button>
+                    <button class="btn btn-lg btn-secondary my-3 mx">Eliminar Opinión</button>
+                </div>
             </div>
-            </div>
-        </div>
+        </div>       
     </div>
 
-
+        <?php
+            $conn->close();
+        ?>
     
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/font-awesome.min.js"></script>
     <script src="../js/Categoria.js"></script>
 </body>
-</html>

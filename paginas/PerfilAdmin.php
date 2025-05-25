@@ -48,6 +48,40 @@
     </ul>
     </div>
 
+    <?php 
+                            try{
+                                require_once('../php/bd_conexion.php');
+                                $sqlR = "SELECT reservacion.Fecha, horarioreservacion.Hora, cantidadreservacion.CantidadPersonas AS Cantidad, estadoreservacion.EstadoReservacion AS Estado, usuarios.Nombre FROM reservacion INNER JOIN horarioreservacion ON reservacion.HorarioID = horarioreservacion.HorarioID INNER JOIN  cantidadreservacion ON reservacion.CantidadID = cantidadreservacion.CantidadID INNER JOIN usuarios ON reservacion.UsuarioID = usuarios.UsuarioID INNER JOIN estadoreservacion ON reservacion.EstadoID = estadoreservacion.EstadoID";
+                                $resultadoR = $conn->query($sqlR);
+                            } catch(\Exception $e){
+                                echo $e->getMessage();
+                            }
+
+                            try{
+                                require_once('../php/bd_conexion.php');
+                                $sqlM = "SELECT platillo.PlatilloID, platillo.Nombre, platillo.Precio, platillo.Descripcion, platillo.Imagen, categoria.Nombre AS Categoria FROM platillo INNER JOIN categoria ON platillo.CategoriaID = categoria.CategoriaID";
+                                $resultadoM = $conn->query($sqlM);
+                            } catch(\Exception $e){
+                                echo $e->getMessage();
+                            }
+
+                             try{
+                                require_once('../php/bd_conexion.php');
+                                $sqlU = "SELECT usuarios.UsuarioID, usuarios.Nombre, usuarios.NombreUsuario, usuarios.Telefono, usuarios.Contrasena, tipousuario.NombreTipo FROM usuarios INNER JOIN tipousuario ON usuarios.TipoID = tipousuario.TipoID";
+                                $resultadoU = $conn->query($sqlU);
+                            } catch(\Exception $e){
+                                echo $e->getMessage();
+                            }
+
+                             try{
+                      require_once('../php/bd_conexion.php');
+                      $sqlO = "SELECT opinion.Comentario, opinion.Calificacion FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1";
+                        $resultadoO = $conn->query($sqlO);
+                  } catch(\Exception $e){
+                      echo $e->getMessage();
+                  }
+
+    ?>
     
     <div class="tab-content">
         <div class="tab-pane fade show active container" id="reservaciones">
@@ -59,15 +93,7 @@
 
             <div style="max-height: 50vh; overflow-y: auto;">
                 <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin">
-                      <?php 
-                            try{
-                                require_once('../php/bd_conexion.php');
-                                $sqlR = "SELECT SELECT reservacion.Fecha, horarioreservacion.Hora, cantidadreservacion.CantidadPersonas AS Cantidad, estadoreservacion.EstadoReservacion AS Estado, usuarios.Nombre FROM reservacion INNER JOIN horarioreservacion ON reservacion.HorarioID = horarioreservacion.HorarioID INNER JOIN  cantidadreservacion ON reservacion.CantidadID = cantidadreservacion.CantidadID INNER JOIN usuarios ON reservacion.UsuarioID = usuarios.UsuarioID INNER JOIN estadoreservacion ON reservacion.EstadoID = estadoreservacion.EstadoID";
-                                $resultadoR = $conn->query($sqlR);
-                            } catch(\Exception $e){
-                                echo $e->getMessage();
-                            }
-                        ?>
+                     
                     <thead>
                     <tr class="table-dark">
                         <th> </th>
@@ -83,32 +109,26 @@
                             $res = "res" . $reservaciones['PlatilloID'];
                             $radioRes =  "radio" .$res;   
                         ?>
-                        <tr class="tableDato" id="<?php . $res . ?>" onclick="seleccionCategoria('<?php . $res . ?>')">
-                            <td>
-                                <input type="hidden" id="resId" name="resId" value="<?php . $reservaciones['PlatilloID'] . ?>">
-                            </td>
-                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php . $radioRes . ?>" name="<?php . $radioRes . ?>"></td>
+                        <tr class="tableDato" id="<?php echo $res; ?>" onclick="seleccionCategoria('<?php echo $res; ?>')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioRes; ?>" name="<?php echo $radioRes; ?>"></td>
                             <td id="rnomS1"><?php echo $reservaciones['Nombre']; ?></td>
                             <td id="rfechaS1"><?php echo $reservaciones['Fecha']; ?></td>
                             <td id="rhoraS1"><?php echo $reservaciones['Hora']; ?></td>
                             <td id="rperS1"><?php echo $reservaciones['Cantidad']; ?></td>
                             <?php switch ($reservaciones['Estado']) {
                                         case "Pendiente":
-                                            echo "<td><span class="badge bg-primary badgeSize">Pendiente</span></td>";
+                                            echo "<td><span class='badge bg-primary badgeSize'>Pendiente</span></td>";
                                             break;
                                         case "Confirmada":
-                                            echo "<td><span class="badge bg-success badgeSize">Confirmada</span></td>";
+                                            echo "<td><span class='badge bg-success badgeSize'>Confirmada</span></td>";
                                             break;
                                         case "Pendiente":
-                                            echo "<td><span class="badge bg-danger badgeSize">Cancelada</span></td>";
+                                            echo "<td><span class='badge bg-danger badgeSize'>Cancelada</span></td>";
                                             break;
                                     } ?>
                         </tr>
                         <?php } ?>
                     </tbody>
-                     <?php
-                        $conn->close();
-                    ?> 
                 </table>
             </div> <br>
 
@@ -129,15 +149,6 @@
 
             <div style="max-height: 50vh; overflow-y: auto;">
                 <table class="table-hover table justify-content-center align-items-center text-center textStyleAdmin">
-                    <?php 
-                            try{
-                                require_once('../php/bd_conexion.php');
-                                $sqlM = "SELECT platillo.PlatilloID, platillo.Nombre, platillo.Precio, platillo.Descripcion, platillo.Imagen, categoria.Nombre AS Categoria FROM platillo INNER JOIN categoria ON platillo.CategoriaID = categoria.CategoriaID";
-                                $resultadoM = $conn->query($sqlM);
-                            } catch(\Exception $e){
-                                echo $e->getMessage();
-                            }
-                        ?>
                     <thead>
                         <tr class="table-dark">
                             <th> </th>
@@ -149,30 +160,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
                         <?php while($menus = $resultadoM->fetch_assoc()){ 
                             $menu = "menu" . $menus['PlatilloID'];
                             $radioMenu =  "radio" .$menu;   
                         ?>
-                        <tr class="tableDato" id="<?php . $menu . ?>" onclick="seleccionCategoria('<?php . $menu . ?>')">
-                            <td>
-                                <input type="hidden" id="menuId" name="menuId" value="<?php . $menus['PlatilloID'] . ?>">
-                            </td>
-                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php . $radioMenu . ?>" name="<?php . $radioMenu . ?>"></td>
+                        <tr class="tableDato" id="<?php echo $menu; ?>" onclick="seleccionCategoria('<?php echo $menu; ?>')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioMenu; ?>" name="<?php echo $radioMenu; ?>"></td>
                             <td id="mcatS1"><?php echo $menus['Categoria']; ?></td>
                             <td id="mplaS1"><?php echo $menus['Nombre']; ?></td>
                             <td id="mpreS1"><?php echo $menus['Precio']; ?></td>
                             <td id="mdesS1"><?php echo $menus['Descripcion']; ?></td>
                             <td class="catfoto">
-                                <img src="../imagenes/menu/<?php . $menus['Imagen'] . ?>"  class="img-thumbnail" alt="..." style="height: 200px;">
+                                <?php $urlPlato = "../imagenes/menu/" . $menus['Imagen'];?>
+                                <img src="<?php echo $urlPlato; ?>"  class="img-thumbnail" alt="..." style="height: 200px;">
                             </td>
                         </tr>
                         <?php } ?>
                         
                     </tbody>
-                    <?php
-                        $conn->close();
-                    ?> 
                 </table>
             </div> <br>
 
@@ -188,15 +193,6 @@
 
             <div style="max-height: 50vh; overflow-y: auto;">
                 <table class="table-hover table justify-content-center align-items-center text-center textStyleAdmin">
-                     <?php 
-                            try{
-                                require_once('../php/bd_conexion.php');
-                                $sqlU = "SELECT usuarios.UsuarioID, usuarios.Nombre, usuarios.NombreUsuario, usuarios.Telefono, usuarios.Contrasena, tipousuario.NombreTipo FROM usuarios INNER JOIN tipousuarios ON usuarios.TipoID = tipousuario.TipoID";
-                                $resultadoU = $conn->query($sqlU);
-                            } catch(\Exception $e){
-                                echo $e->getMessage();
-                            }
-                        ?>
                     <thead>
                     <tr class="table-dark">
                         <th> </th>
@@ -213,11 +209,8 @@
                             $user = "user" . $usuarios['UsuarioID'];
                             $radioUser =  "radio" .$user;   
                         ?>
-                        <tr class="tableDato" id="<?php . $user . ?>" onclick="seleccionCategoria('<?php . $user . ?>')">
-                            <td>
-                                <input type="hidden" id="userId" name="userId" value="<?php . $usuarios['UsuarioID'] . ?>">
-                            </td>
-                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php . $radioUser . ?>" name="<?php . $radioUser . ?>"></td>
+                        <tr class="tableDato" id="<?php echo $user; ?>" onclick="seleccionCategoria('<?php echo $user; ?>')">
+                            <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioUser; ?>" name="<?php echo $radioUser; ?>"></td>
                             <td><?php echo $usuarios['NombreTipo']; ?></td>
                             <td><?php echo $usuarios['NombreUsuario']; ?></td>
                             <td><?php echo $usuarios['Nombre']; ?></td>
@@ -226,9 +219,6 @@
                         </tr>
                         <?php } ?>
                     </tbody>
-                     <?php
-                        $conn->close();
-                    ?> 
                 </table>
             </div> <br>
             <div>
@@ -240,15 +230,6 @@
         </div>
 
         <div class="tab-pane fade container" id="opiniones">
-             <?php 
-                  try{
-                      require_once('../php/bd_conexion.php');
-                      $sqlO = "SELECT opinion.Comentario, opinion.Calificacion FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1";
-                        $resultadoO = $conn->query($sqlO);
-                  } catch(\Exception $e){
-                      echo $e->getMessage();
-                  }
-              ?> 
             <h2 class="text-center encabezado2 my-3">Opiniones</h2>
             <div style="max-height: 50vh; overflow-y: auto;">
             <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin2">
@@ -257,20 +238,17 @@
                             $op = "op" . $opiniones['OpinionID'];
                             $radioOp =  "radio" .$op;   
                     ?>
-                  <tr class="tableDato" id="<?php . $cat . ?>" onclick="seleccionCategoria('<?php . $op . ?>')">
-                    <td>
-                        <input type="hidden" id="opId" name="opId" value="<?php . $opiniones['OpinionID'] . ?>">
-                    </td>
-                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php . $radioOp . ?>" name="<?php . $radioOp . ?>"></td>
-                    <td class="comentario_O"  id="optxtS1"><?php . $opiniones['Comentario'] . ?></td>
+                  <tr class="tableDato" id="<?php echo $cat; ?>" onclick="seleccionCategoria('<?php echo $op; ?>')">
+                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioOp; ?>" name="<?php echo $radioOp; ?>"></td>
+                    <td class="comentario_O"  id="optxtS1"><?php echo $opiniones['Comentario']; ?></td>
                         <td class="estrellas_O">
                              <?php 
                                 $estrellas = $opiniones['Calificacion'] - 1;
                                 for($x = 0; $x < 5; $x++){
-                                    if($estrellas <= $x){
-                                        echo "<span class="fa fa-star checked"></span>";
+                                    if($x <= $estrellas){
+                                        echo "<span class='fa fa-star checked'></span>";
                                     }else{
-                                        echo "<span class="fa fa-star"></span>";
+                                        echo "<span class='fa fa-star'></span>";
                                     }
                                 }
                             ?>
@@ -283,9 +261,7 @@
             <div class="d-flex justify-content-center">
                 <button class="btn btn-lg btn-secondary my-3">Eliminar Opinión</button>
             </div>
-            <?php
-                $conn->close();
-            ?>
+           
         </div>
 
         <div class="tab-pane fade container" id="reportes">
@@ -301,6 +277,9 @@
             </div>
             </div>
         </div>
+         <?php
+                $conn->close();
+            ?>
     </div>
 
 

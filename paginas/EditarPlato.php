@@ -12,6 +12,7 @@
 </head>
 
 <body class="bg-light">
+    <?php $platoID = $_GET['plato_id'];?>
 
     <br><section class="banner" style="text-align: center;">
         <h1 class="page-title encabezado">EDITAR PLATO</h1>
@@ -28,7 +29,8 @@
             }
 
             try{
-                $sqlP = "SELECT * FROM platillo INNER JOIN categoria ON platillo.CategoriaID = categoria.CategoriaID";
+                require_once('../php/bd_conexion.php');
+                $sqlP = "SELECT * FROM platillo WHERE PlatilloID =" .$platoID;
                 $resultadoP = $conn->query($sqlP);
             } catch(\Exception $e){
                 echo $e->getMessage();
@@ -36,15 +38,25 @@
         ?> 
 
         <div class="mb-3 mt-3 textStyle">
+            <?php 
+                $platillo = $resultadoP->fetch_assoc();?>
+
             <label for="pname" class="form-label">Categoría:</label>
             <select class="form-select" aria-label="Categoría:" id="pname" value="pname">
                 <option disabled>Selecciona la categoría del platillo</option><?php      
                     while($categorias = $resultadoC->fetch_assoc()){ 
-                        if ($categorias["CategoriaID"] == $resultadoP["CategoriaID"] ){
+                        if ($categorias["CategoriaID"] == $platillo["CategoriaID"] ){
                             echo "<option selected value='" . $categorias['CategoriaID'] . "'>" . $categorias['Nombre'] . "</option>";
                         }else{
                             echo "<option value='" . $categorias['CategoriaID'] . "'>" . $categorias['Nombre'] . "</option>";
                         }
+                    }
+                ?>
+
+                <option disabled>Selecciona la categoría del platillo</option><?php      
+                    while($categorias = $resultadoC->fetch_assoc()){ ?>
+                       <option value="<?php echo $categorias['CategoriaID']; ?>"><?php echo $categorias['Nombre'];?></option>
+                    <?php
                     }
                 ?>
             </select>
@@ -52,30 +64,23 @@
 
         <div class="mb-3 mt-3 textStyle">
             <label for="pname" class="form-label">Nombre del platillo:</label>
-            <?php     
-                echo "<input type="text" class="form-control" id="pname" placeholder="Introduce el nombre del platillo" name="pname" required value=". $resultadoP['Nombre'] .">";
-            ?>
+            <input type="text" class="form-control" id="pname"  placeholder="Introduce el nombre del platillo" name="pname" value="<?php echo $platillo['Nombre']; ?>">
+           
         </div>
 
         <div class="mb-3 mt-3 textStyle" >
             <label for="pprice" class="form-label">Precio:</label>
-            <?php
-                echo "<input type="number" class="form-control" id="pprice" placeholder="Introduce el precio del platillo" name="pprice" required value=". $resultadoP['Precio'] .">";
-            ?>
+            <input type="number" class="form-control" step="0.01" id="pprice" placeholder="Introduce el precio del platillo" name="pprice" required value="<?php echo $platillo['Precio']; ?>">
         </div>
 
         <div class="mb-3 mt-3 textStyle">
             <label for="pdesc" class="form-label">Descripción:</label>
-            <?php
-                echo "<textarea class="form-control" id="pdesc" rows="3" required placeholder="Introduce la descripción del platillo" value=". $resultadoP['Descripcion'] ."></textarea>";
-            ?>
+           <textarea class="form-control" id="pdesc" rows="3" required placeholder="Introduce la descripción del platillo" value="<?php echo $platillo['Descripcion']; ?>"><?php echo $platillo['Descripcion']; ?></textarea>
         </div>
 
         <div class="mb-3 mt-3 textStyle">
             <label for="pfoto" class="form-label">Introduce la imagen del platillo:</label>
-            <?php
-                echo "<input class="form-control" type="file" id="pfoto" accept="image/png, image/jpeg" value=". $resultadoP['Imagen'] .">";
-            ?>
+            <input class="form-control" type="file" id="pfoto" accept="image/png, image/jpeg" value="<?php echo $platillo['Imagen']; ?>">
         </div>
 
         <?php

@@ -26,7 +26,7 @@
          <?php 
             try{
                 require_once('../php/bd_conexion.php');
-                $sql = "SELECT opinion.Comentario, opinion.Calificacion,usuarios.NombreUsuario FROM opinion INNER JOIN reservacion ON opinion.UsuarioID = reservacion.UsuarioID INNER JOIN usuarios ON reservacion.UsuarioID = usuarios.UsuarioID WHERE opinion.activo = 1";
+                $sql = "SELECT opinion.Comentario, opinion.Calificacion,usuarios.NombreUsuario FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID INNER JOIN usuarios ON reservacion.UsuarioID = usuarios.UsuarioID WHERE opinion.activo = 1";
                 $resultado = $conn->query($sql);
             } catch(\Exception $e){
                 echo $e->getMessage();
@@ -39,17 +39,17 @@
                 <div class="col-3 usuario_O textStyleUser">
                     <p class="text-center"><?php echo $opiniones['NombreUsuario']; ?></p>
                 </div>
-                <div class="col-7 comentario_O textStyle">
+                <div class="col-7 comentario_O textStyle text-align-center">
                     <p><?php echo $opiniones['Comentario']; ?></p>
                 </div>
-                <div class="col-2 estrellas_O text-center">
+                <div class="col-2 estrellas_O text-center comentario_O">
                     <?php 
                         $estrellas = $opiniones['Calificacion'] - 1;
                         for($x = 0; $x < 5; $x++){
-                            if($estrellas <= $x){
-                                echo "<span class="fa fa-star checked"></span>";
+                            if($x <= $estrellas){
+                                echo "<span class='fa fa-star checked'></span>";
                             }else{
-                                echo "<span class="fa fa-star"></span>";
+                                echo "<span class='fa fa-star'></span>";
                             }
                         }
                     ?>
@@ -68,5 +68,3 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/font-awesome.min.js"></script>
 </body>
-
-</html>

@@ -40,3 +40,7 @@
 a{
     text-decoration: none;
 }
+
+.card_plato{
+    transform: translateX(50%);
+}

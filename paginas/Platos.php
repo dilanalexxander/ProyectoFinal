@@ -13,7 +13,7 @@
 </head>
 
 <body>
-     <?php $varCat = $_GET['varCat'];?>
+     <?php $varCat = $_GET['cat_id'];?>
 
     <div class="container-fluid my-3">
         <a href="../index.html">
@@ -34,67 +34,42 @@
 
              try{
                 require_once('../php/bd_conexion.php');
-                $sqlC = "SELECT CategoriaID FROM platillo WHERE CategoriaID =" . $varCat;
+                $sqlC = "SELECT Nombre FROM categoria WHERE CategoriaID =" . $varCat;
                 $resultadoC = $conn->query($sqlC);
             } catch(\Exception $e){
                 echo $e->getMessage();
             }
         ?> 
 
+        <?php  $categoria = $resultadoC->fetch_assoc(); ?>
 
-        <H1 class="text-center encabezado"><?php echo $resultadoC['CategoriaID'] ?></H1>
+        <H1 class="text-center encabezado"><?php echo $categoria['Nombre'] ?></H1>
+        <div class="container w-75">
         
-        <?php 
+             <?php 
             $listaCat = array();
-            while($plato = $resultadoP->fetch_assoc()){ 
-                $listaCat[] = $plato;
-            }
-            
-            $total = count($listaCat);
+            while($plato = $resultadoP->fetch_assoc()){  ?>
 
-            for($i = 0; $i<$total; $i++)
-            {
-                if($i%2 == 0){
-                    if($i != 0){
-                        ?>
-                        </div>
-                        <?php
-                    }
-                    else{
-                        ?>
-                        <div class="row">
-                            <div class="card col-md c_menu">
-                                <img src="../imagenes/menu/<?php . $listaCat[i]['Imagen'] .?>" class="card-img-top" alt="<?php . $listaCat[i]['Nombre'] .?>">
-                                <div class="card-body">
-                                    <div class="card-title row">
-                                        <h5 class="col-8"><?php echo $listaCat[i]['Nombre'];?></h5>
-                                        <h5 class="col-4 precio"><?php echo $listaCat[i]['Precio'];?></h5>
-                                    </div>
-                                <p class="card-text"><?php echo $listaCat[i]['Descripcion'];?></p>
-                                </div>
-                            </div>
-                        <?php
-                    }
-                }
-                else{
-                    <div class="card col-md c_menu">
-                        <img src="../imagenes/menu/<?php . $listaCat[i]['Imagen'] .?>" class="card-img-top" alt="<?php . $listaCat[i]['Nombre'] .?>">
-                        <div class="card-body">
-                            <div class="card-title row">
-                                <h5 class="col-8"><?php echo $listaCat[i]['Nombre'];?></h5>
-                                <h5 class="col-4 precio"><?php echo $listaCat[i]['Precio'];?></h5>
-                            </div>
-                            <p class="card-text"><?php echo $listaCat[i]['Descripcion'];?></p>
-                        </div>
-                   </div>
-                }
-                if($total == $i+1){
-                    ?>
+             <div class="card p-2 m-2 my-5 card_plato">
+                <?php $urlP = "../imagenes/menu/" .$plato['Imagen']; ?>
+                <div class="w-90">
+                    <img src="<?php echo $urlP; ?>" class="card-img-top" alt="<?php echo $plato['Nombre']; ?>">
+                </div>
+                <div class="card-body">
+                    <div class="card-title row">
+                        <h5 class="col-8"><?php echo $plato['Nombre'];?></h5>
+                        <?php $precio = "$". $plato['Precio'];?>
+                        <h5 class="col-4 precio"><?php echo $precio;?></h5>
                     </div>
-                    <?php
-                }
-            }
-            ?>
+                  <p class="card-text"><?php echo $plato['Descripcion'];?></p>
+                </div>
+            </div>
+
+                <?php
+            }?>
+
+            
+        </div>
         <?php
             $conn->close();
         ?>
@@ -103,5 +78,3 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
-
-</html>
