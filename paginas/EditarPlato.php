@@ -89,7 +89,7 @@
 
         <div class="d-flex justify-content-center align-items-center">
         <button type="button" class="btn btn-primary btn-lg " style="margin-right: 100px">Guardar</button>
-        <button type="button" onclick="window.location.href='./PerfilAdmin.html'" class="btn btn-secondary btn-lg">Cancelar</button>
+        <button type="button" onclick="window.location.href='./PerfilAdmin.php'" class="btn btn-secondary btn-lg">Cancelar</button>
         </div>
         
     </div>

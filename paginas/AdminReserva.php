@@ -14,6 +14,12 @@
 
 <body class="bg-light">
 
+    <div class="container-fluid my-3">
+        <a href="../paginas/PerfilAdmin.php">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+
     <br><section class="banner" style="text-align: center;">
         <h1 class="page-title encabezado">RESERVACIONES </h1>
     </section> <br>

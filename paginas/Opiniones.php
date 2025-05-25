@@ -15,7 +15,7 @@
 
 <body>
     <div class="container-fluid my-3">
-        <a href="../paginas/PerfilUsuario.html">
+        <a href="../Index.html">
             <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
         </a>
     </div>

@@ -35,17 +35,18 @@
         ?> 
 
         <?php
-            while($categorias = $resultado->fetch_assoc()){
-                echo "
+            while($categorias = $resultado->fetch_assoc()){?>
                 <div class="row">
-                    <a href="../paginas/Platos.php?varCat=$categorias['CategoriaID']">
-                        <div class="menu_cat" style="background-image: url(../imagenes/menu/". $categorias['Foto'] .")">
+                    <a href="../paginas/Platos.php?varCat='<?php echo $categorias['CategoriaID']; ?>'">
+                        <?php $url = "../imagenes/menu/" . $categorias['Foto'];?>
+                        <div class="menu_cat" style="background-image: url('<?php echo $url; ?>')">
                             <div class="overlay_menu d-flex">
-                            <h2 class="menu_h2 textStyle">". $categorias['Nombre'] ."</h2>
+                            <h2 class="menu_h2 textStyle"><?php echo $categorias['Nombre'] ?></h2>
                             </div>
                         </div>
                     </a>
-                </div>";
+                </div>
+        <?php
             }
         ?>
 
@@ -55,7 +56,7 @@
     </div>
     
             
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

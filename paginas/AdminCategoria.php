@@ -14,6 +14,12 @@
 
 <body class="bg-light">
 
+    <div class="container-fluid my-3">
+        <a href="../paginas/PerfilAdmin.php">
+            <img src="../imagenes/Logo.png" class="mx-auto d-block img-fluid menuLogoBack">
+        </a>
+    </div>
+
     <br><section class="banner" style="text-align: center;">
         <h1 class="page-title encabezado">CATEGORÍAS</h1>
     </section> <br>
@@ -77,8 +83,5 @@
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/Categoria.js"></script>
     <script src="../js/Funciones.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
 </body>
