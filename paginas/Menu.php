@@ -37,14 +37,16 @@
         <?php
             while($categorias = $resultado->fetch_assoc()){?>
                 <div class="row">
-                    <a href="../paginas/Platos.php?varCat='<?php echo $categorias['CategoriaID']; ?>'">
+                    <a href="../paginas/Platos.php?cat_id='<?php echo $categorias['CategoriaID']; ?>'">
                         <?php $url = "../imagenes/menu/" . $categorias['Foto'];?>
                         <div class="menu_cat" style="background-image: url('<?php echo $url; ?>')">
                             <div class="overlay_menu d-flex">
-                            <h2 class="menu_h2 textStyle"><?php echo $categorias['Nombre'] ?></h2>
+                            <?php $str = strtoupper($categorias['Nombre']); ?>
+                            <h2 class="menu_h2 textStyle"><?php echo $str; ?></h2>
                             </div>
                         </div>
                     </a>
+                    
                 </div>
         <?php
             }

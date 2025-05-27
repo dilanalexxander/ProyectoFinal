@@ -43,7 +43,7 @@
 
             <div class="mb-3 textStyle">
                 <label for="FechaR" class="form-label">Fecha de reservación:</label>
-                <?php  $fechaAct = date("d-m-y"); ?>
+                <?php  $fechaAct = date("y-m-d"); ?>
                 <input type="date" class="form-control" id="fechaR" name="fechaR" min="<?php echo $fechaAct; ?>" required>
               </div>
             <div class="mb-3 textStyle">
@@ -76,6 +76,7 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/Funciones.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
     
 </body>
 

@@ -75,7 +75,7 @@
 
                              try{
                       require_once('../php/bd_conexion.php');
-                      $sqlO = "SELECT opinion.Comentario, opinion.Calificacion FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1";
+                      $sqlO = "SELECT opinion.Comentario, opinion.Calificacion, opinion.OpinionID FROM opinion INNER JOIN reservacion ON opinion.ReservacionID = reservacion.ReservacionID WHERE opinion.Activo = 1";
                         $resultadoO = $conn->query($sqlO);
                   } catch(\Exception $e){
                       echo $e->getMessage();
@@ -206,7 +206,7 @@
                     
                     <tbody>
                          <?php while($usuarios = $resultadoU->fetch_assoc()){ 
-                            $user = "user" . $usuarios['UsuarioID'];
+                            $user = "user-" . $usuarios['UsuarioID'];
                             $radioUser =  "radio" .$user;   
                         ?>
                         <tr class="tableDato" id="<?php echo $user; ?>" onclick="seleccionCategoria('<?php echo $user; ?>')">
@@ -235,31 +235,34 @@
             <table class="table table-hover justify-content-center align-items-center text-center textStyleAdmin2">
                 <tbody>
                     <?php while($opiniones = $resultadoO->fetch_assoc()){ 
-                            $op = "op" . $opiniones['OpinionID'];
+                            $op = "op-" . $opiniones['OpinionID'];
                             $radioOp =  "radio" .$op;   
                     ?>
-                  <tr class="tableDato" id="<?php echo $cat; ?>" onclick="seleccionCategoria('<?php echo $op; ?>')">
-                    <td class="catselect p-5"><input type="radio" class="form-check-input" id="<?php echo $radioOp; ?>" name="<?php echo $radioOp; ?>"></td>
+                  <tr class="tableDato" id="<?php echo $op; ?>" onclick="seleccionCategoria('<?php echo $op; ?>')">
+                    <td class="catselect p-5">
+                        <div class="form-check align-content-center">
+                            <input type="radio" class="form-check-input" id="<?php echo $radioOp; ?>" name="<?php echo $radioOp; ?>"></td>
+                        </div>
                     <td class="comentario_O"  id="optxtS1"><?php echo $opiniones['Comentario']; ?></td>
-                        <td class="estrellas_O">
-                             <?php 
-                                $estrellas = $opiniones['Calificacion'] - 1;
-                                for($x = 0; $x < 5; $x++){
-                                    if($x <= $estrellas){
-                                        echo "<span class='fa fa-star checked'></span>";
-                                    }else{
-                                        echo "<span class='fa fa-star'></span>";
-                                    }
+                    <td class="estrellas_O">
+                            <?php 
+                            $estrellas = $opiniones['Calificacion'] - 1;
+                            for($x = 0; $x < 5; $x++){
+                                if($x <= $estrellas){
+                                    echo "<span class='fa fa-star checked'></span>";
+                                }else{
+                                    echo "<span class='fa fa-star'></span>";
                                 }
-                            ?>
-                        </td>
+                            }
+                        ?>
+                    </td>
                   </tr>
                   <?php } ?>
                 </tbody>
               </table>
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-lg btn-secondary my-3">Eliminar Opinión</button>
+                <button type="button" class="btn btn-lg btn-secondary my-3" onclick="eliminarOpinion()">Eliminar Opinión</button>
             </div>
            
         </div>
@@ -290,5 +293,7 @@
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/font-awesome.min.js"></script>
     <script src="../js/Categoria.js"></script>
+    <script src="../js/Funciones.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
 </body>
 </html>

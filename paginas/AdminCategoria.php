@@ -74,7 +74,7 @@
       
         <div class="d-flex justify-content-center align-items-center tButtons">
             <button type="button" onclick="window.location.href='AgregarCategoria.html'" class="btn btn-primary btn-lg " style="margin-right: 100px">Nuevo</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="eliminarCategoria()">Eliminar</button>
+            <button type="submit" class="btn btn-secondary btn-lg" onclick="eliminarCategoria()">Eliminar</button>
         </div>
         
     </div>

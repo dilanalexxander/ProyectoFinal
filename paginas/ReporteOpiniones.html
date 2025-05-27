@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHATEAU BLANC</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Reportes.css">
+    <link rel="stylesheet" href="../css/Reportes.css">
     <link rel="stylesheet" href="../css/Fonts.css">
     <link rel="stylesheet" href="../css/General.css">
 </head>
@@ -29,7 +29,8 @@
               <input type="date" class="form-control" id="fecha_Final" name="fecha_Final">
           </div>
         </div>
-            <button type="submit" class="btn btn-primary">Generar Reporte</button>
+            <button type="button" class="btn btn-primary" onclick="graficarOpiniones()">Generar Reporte</button>
+            
         </form>
         <div class="row reportes">
           <div class="col-md textStyle">
@@ -44,9 +45,11 @@
     </div>
     
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/Chart.js"></script>
-    <script src="../js/ReporteOpinion.js"></script>
+   <!-- <script src="../js/ReporteOpinion.js"></script>-->
+    <script src="../js/Reportes.js"></script>
 
 
 </body>

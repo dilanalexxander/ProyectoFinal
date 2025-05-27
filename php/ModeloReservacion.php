@@ -15,7 +15,6 @@ $accion = $_POST['accion'] ?? '';
     
         switch ($accion) {
             case "crear":
-                include 'bd_conexion.php';
 
                 $usuario = $_POST['UsuarioID'] ?? '';
                 $hora = $_POST['HorarioID'] ?? '';
@@ -30,7 +29,7 @@ $accion = $_POST['accion'] ?? '';
                 }
 
                  $stmt = $conn->prepare("INSERT INTO reservacion (UsuarioID, HorarioID, CantidadID, Fecha, EstadoID) VALUES (?,?,?,?,?)");
-                 $stmt->bind_param("iiisi", $usuario, $hora, $cantidad, $fecha, $estado);
+                 $stmt->bind_param("iiisi", $usuario, $hora, $cantidad, $fechaFormato, $estado);
 
                 if ($stmt->execute()) {
                     echo json_encode(["statusCode" => 200]);
@@ -41,8 +40,8 @@ $accion = $_POST['accion'] ?? '';
                 $stmt->close();
                 $conn->close();
                 break;
+
             case "crearAdmin":
-                include 'bd_conexion.php';
 
                 $usuario = $_POST['Nombre'] ?? '';
                 $hora = $_POST['HorarioID'] ?? '';
@@ -82,7 +81,7 @@ $accion = $_POST['accion'] ?? '';
                 $stmtU->close();
 
 
-                 $stmt2 = $conn->prepare("INSERT INTO reservacion (UsuarioID, HorarioID, CantidadID, Fecha, EstadoID) VALUES (?,?,?,?,?)");
+                 /*$stmt2 = $conn->prepare("INSERT INTO reservacion (UsuarioID, HorarioID, CantidadID, Fecha, EstadoID) VALUES (?,?,?,?,?)");
                  $stmt2->bind_param("iiisi", $reciente, $hora, $cantidad, $fecha, $estado);
 
                 if ($stmt2->execute()) {
@@ -91,7 +90,7 @@ $accion = $_POST['accion'] ?? '';
                     echo json_encode(["statusCode" => 201, "error" => $stmt2->error]);
                 }
 
-                $stmt2->close();
+                $stmt2->close();*/
                 $conn->close();
                 break;
             case "eliminar":

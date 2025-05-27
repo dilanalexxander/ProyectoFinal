@@ -116,4 +116,7 @@
     <script src="../js/popper.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/Categoria.js"></script>
+    
+    <script src="../js/Funciones.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
 </body>

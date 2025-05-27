@@ -77,7 +77,7 @@ function eliminarCategoria(){
 
 //FUNCIONES HORAS
 function agregarHora(){
-    var horaTexto = $("#hhora").val();
+    var horaTexto = $("#hnumber").val();
 
     if(horaTexto === ''){
         alert("Favor de agregar la hora");
@@ -95,7 +95,7 @@ function agregarHora(){
             if (xhr.status === 200) {
                 alert("Hora agregada correctamente.");
                 // Puedes limpiar los campos o recargar la tabla, etc.
-                $("#hhora").val('');
+                $("#hnumber").val('');
             } else {
                 alert("Error al agregar la hora. Inténtalo de nuevo.");
             }
@@ -145,9 +145,12 @@ function agregarCantidadP(){
 
 //FUNCIONES OPINIONES
 function agregarOpinion(idUSer){
-    var reservacionTexto = $('#rFecha').find(":selected").text();
+    var reservacionTexto = $('#rFecha').find(":selected").val();
     var opinionTexto = $("#rOpinion").val();
     var estrellasTexto = $('#rEstrellas').find(":selected").text();
+    console.log(reservacionTexto);
+    console.log(opinionTexto);
+    console.log(estrellasTexto);
 
     if(opinionTexto === '' || reservacionTexto === '' || estrellasTexto === ''){
         alert("Favor de llenar todos los campos.");
@@ -169,7 +172,7 @@ function agregarOpinion(idUSer){
                 // Puedes limpiar los campos o recargar la tabla, etc.
                 $("#rOpinion").val('');
                 $('#rFecha option[value="default"]').prop('selected', true);
-                $('#rEstrellas option[value="1E"]').prop('selected', true);
+                $('#rEstrellas option[value="1"]').prop('selected', true);
             } else {
                 alert("Error al realizar tu reservación. Inténtalo de nuevo.");
             }
@@ -182,15 +185,51 @@ function agregarOpinion(idUSer){
           xhr.send(datos);
 }
 
+function eliminarOpinion(){
+   if(!confirm("¿Estás seguro de que deseas eliminar esta opinión?")){
+        return;
+    }
+    else{
+    var xhr = new XMLHttpRequest();
+    var idEliminar = encontrarID();
+
+    var datos = new FormData();
+    datos.append('accion', "eliminar");
+    datos.append('id',idEliminar);
+    console.log();
+
+    xhr.open('POST', '../php/ModeloOpinion.php', true);
+    xhr.onload = function () {
+       console.log("Respuesta:", xhr.responseText);
+        if (xhr.status === 200) {
+            var respuesta = JSON.parse(xhr.responseText);
+            if (respuesta.statusCode == 200) {
+                alert("Categoría eliminada correctamente");
+                location.reload();  // Recargar tabla o actualizar DOM
+            } else {
+                alert("Error: " + (respuesta.error || "No se pudo eliminar"));
+            }
+        }
+        }
+    };
+     xhr.onerror = function () {
+            alert("Error de red. Verifica tu conexión.");
+        };
+    xhr.send(datos);
+}
 
 //FUNCIONES RESERVACIONES
 function agregarReserva(idUSer){
     var fechaVal = $("#fechaR").val();
-    var fechaTexto = fechaVal.replace("-", "/");
-    var cantidadTexto = $('#PersonasR').find(":selected").text();
-    var horaTexto = $('#HoraR').find(":selected").text();
-
-    if(fechaTexto === '' || cantidadTexto === '' || horaTexto === ''){
+    //var fechaTexto = fechaVal.replace("-", "/");
+    var cantidadTexto = $('#PersonasR').find(":selected").val();
+    var horaTexto = $('#HoraR').find(":selected").val();
+    var fechaF = "2025/06/01";
+    console.log(fechaVal);
+    console.log(horaTexto);
+    console.log(cantidadTexto);
+    console.log(idUSer);
+    if(fechaVal === '' || cantidadTexto === '' || horaTexto === ''){
         alert("Favor de llenar todos los campos.");
         return;
     }else{
@@ -201,28 +240,29 @@ function agregarReserva(idUSer){
          datos.append('UsuarioID', idUSer);
          datos.append('HorarioID', horaTexto);
          datos.append('CantidadID', cantidadTexto);
-         datos.append('Fecha', fechaTexto);
+         datos.append('Fecha', fechaF);
          datos.append('EstadoID', "1");
 
           xhr.open('POST', '../php/ModeloReservacion.php', true);
           xhr.onload = function () {
-            console.log("Respuesta:", xhr.responseText);
+            //console.log("Respuesta:", xhr.responseText);
             if (xhr.status === 200) {
                 alert("Reservación realizada correctamente.");
                 // Puedes limpiar los campos o recargar la tabla, etc.
-                $("#fechaR").val('');
+                /*$("#fechaR").val('');
                 $('#PersonasR option[value="personadefault"]').prop('selected', true);
-                $('#HoraR option[value="horadefault"]').prop('selected', true);
+                $('#HoraR option[value="horadefault"]').prop('selected', true);*/
             } else {
-                alert("Error al agregar tu opinión. Inténtalo de nuevo.");
+                alert("Error al realizar tu reservacion. Inténtalo de nuevo.");
             }
         }
-    };
-
-        xhr.onerror = function () {
+         xhr.onerror = function () {
             alert("Error de red. Verifica tu conexión.");
         };
           xhr.send(datos);
+    };
+        
+       
 }
 
 function agregarReservaAdmin(){
@@ -292,30 +332,31 @@ function agregarUsuario(){
 
           xhr.open('POST', '../php/ModeloUsuario.php', true);
           xhr.onload = function () {
-            console.log("Respuesta:", xhr.responseText);
+           console.log("Respuesta:", xhr.responseText);
             if (xhr.status === 200) {
                 alert("Usuario creado correctamente.");
                 // Puedes limpiar los campos o recargar la tabla, etc.
-                $("#uName").val('');
+                /*$("#uName").val('');
                 $("#uUser").val('');
                 $("#uTel").val('');
-                $("#uPass").val('');
+                $("#uPass").val('');*/
             } else {
                 alert("Error al crear usuario. Inténtalo de nuevo.");
             }
         }
+         ;
     };
-
-        xhr.onerror = function () {
+    xhr.onerror = function () {
             alert("Error de red. Verifica tu conexión.");
         };
-        xhr.send(datos);
+        xhr.send(datos)
 }
 
 function iniciarSesion(){
-    var telefonoTexto = $("#uTel").val();
-    var contrasenaTexto = $("#uPass").val();
-
+    var telefonoTexto = $("#utel").val();
+    var contrasenaTexto = $("#upass").val();
+    console.log (telefonoTexto);
+    console.log (contrasenaTexto);
     if(telefonoTexto === '' || contrasenaTexto === ''){
         alert("Favor de llenar todos los campos.");
         return;
@@ -334,8 +375,8 @@ function iniciarSesion(){
             if (xhr.status === 200) {
                 //alert("Usuario creado correctamente.");
                 // Puedes limpiar los campos o recargar la tabla, etc.
-                $("#uTel").val('');
-                $("#uPass").val('');
+                $("#utel").val('');
+                $("#upass").val('');
             } else {
                 alert("Error al iniciar sesión. Inténtalo de nuevo.");
             }
@@ -362,27 +403,48 @@ function agregarUsuarioAdmin(){
          var xhr = new XMLHttpRequest();
 
          var datos = new FormData();
-         datos.append('accion', "crearAdmin");
+         datos.append('accion', "admin");
          datos.append('Nombre', usuarioTexto);
          datos.append('NombreUsuario', userTexto);
          datos.append('Telefono', telefonoTexto);
          datos.append('Contrasena', contrasenaTexto);
          datos.append('TipoID', tipoTexto );
-
+        console.log(usuarioTexto);
+        console.log(userTexto);
+        console.log(contrasenaTexto);
+        console.log(telefonoTexto);
+        console.log(tipoTexto);
           xhr.open('POST', '../php/ModeloUsuario.php', true);
           xhr.onload = function () {
             console.log("Respuesta:", xhr.responseText);
             if (xhr.status === 200) {
-                alert("Usuario creado correctamente.");
-                // Puedes limpiar los campos o recargar la tabla, etc.
-                $('#uTipo option[value="default"]').prop('selected', true);
-                $("#uName").val('');
-                $("#uUser").val('');
-                $("#uTel").val('');
-                $("#uPass").val('');
+                let respuesta = {};
+                try {
+                    respuesta = JSON.parse(xhr.responseText);
+                } catch (e) {
+                    alert("Error en la respuesta del servidor.");
+                    return;
+                }
+
+                if (respuesta.statusCode === 200) {
+                    alert("Usuario creado correctamente.");
+                    $('#uTipo option[value="default"]').prop('selected', true);
+                    $("#uName").val('');
+                    $("#uUser").val('');
+                    $("#uTel").val('');
+                    $("#uPass").val('');
+                } else {
+                    alert("Error: " + (respuesta.error || "No se pudo crear el usuario."));
+                }
             } else {
                 alert("Error al crear usuario. Inténtalo de nuevo.");
             }
-        }
+        };
+
+        xhr.onerror = function () {
+            alert("Error de red. Verifica tu conexión.");
+        };
+        xhr.send(datos);
     }
+    
 }

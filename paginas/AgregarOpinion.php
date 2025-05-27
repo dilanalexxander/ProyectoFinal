@@ -51,13 +51,13 @@
         </div>
         
         <div class="mb-3 mt-3 textStyle">
-            <label for="uname" class="form-label" id="rEstrellas">Estrellas:</label>
-            <select class="form-select">
-                <option value="1E">1</option>
-                <option value="2E">2</option>
-                <option value="3E">3</option>
-                <option value="4E">4</option>
-                <option value="5E">5</option>
+            <label for="uname" class="form-label">Estrellas:</label>
+            <select class="form-select" id="rEstrellas">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
         </div>
 
@@ -69,7 +69,7 @@
     <div class="d-flex justify-content-center align-items-center my-5">
         <?php 
             $urlR = "window.location.href='./PerfilUsuario.php?user_id=" .$userID ."'";
-            $agregarO = "agregarReserva(". $userID .")";
+            $agregarO = "agregarOpinion(". $userID .")";
         ?>
         <button type="button" onclick="<?php echo $agregarO; ?>" class="btn btn-primary btn-lg " style="margin-right: 100px">Guardar</button>
         <button type="button" onclick="<?php echo $urlR; ?>" class="btn btn-secondary btn-lg">Cancelar</button>
@@ -78,4 +78,7 @@
 
     <script src="../js/popper.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
+    <script src="../js/Categoria.js"></script>
+    <script src="../js/Funciones.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
 </body>

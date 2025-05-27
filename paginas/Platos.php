@@ -42,15 +42,15 @@
         ?> 
 
         <?php  $categoria = $resultadoC->fetch_assoc(); ?>
-
-        <H1 class="text-center encabezado"><?php echo $categoria['Nombre'] ?></H1>
+        <?php $str = strtoupper($categoria['Nombre']); ?>
+        <H1 class="text-center encabezado"><?php echo $str ?></H1>
         <div class="container w-75">
         
              <?php 
             $listaCat = array();
             while($plato = $resultadoP->fetch_assoc()){  ?>
 
-             <div class="card p-2 m-2 my-5 card_plato">
+             <div class="card p-2 m-2 my-5 justify-content">
                 <?php $urlP = "../imagenes/menu/" .$plato['Imagen']; ?>
                 <div class="w-90">
                     <img src="<?php echo $urlP; ?>" class="card-img-top" alt="<?php echo $plato['Nombre']; ?>">

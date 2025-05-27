@@ -40,7 +40,22 @@ $accion = $_POST['accion'] ?? '';
                 $conn->close();
                 break;
             case "eliminar":
-                
+                 $id = $_POST['id'] ?? null;
+                if (!$id || !is_numeric($id)) {
+                    echo json_encode(["statusCode" => 400, "error" => "ID inválido"]);
+                    exit;
+                }
+                $stmt = $conn->prepare("DELETE FROM opinion WHERE OpinionID = ?");
+                $stmt->bind_param("i", $id);
+
+                if ($stmt->execute()) {
+                    echo json_encode(["statusCode" => 200, "mensaje" => "Categoría eliminada"]);
+                } else {
+                    echo json_encode(["statusCode" => 500, "error" => $stmt->error]);
+                }
+
+                $stmt->close();
+                $conn->close();
                 break;
             default:
                 echo json_encode(["statusCode" => 400, "error" => "Acción no reconocida"]);

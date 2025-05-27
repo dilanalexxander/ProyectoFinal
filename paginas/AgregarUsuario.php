@@ -31,7 +31,7 @@
             <label for="uTipo" class="form-label">Tipo de usuario:</label>
             <select class="form-select" aria-label="Tipo de usuario:" id="uTipo" value="uTipo">
                 <option disabled value="default">Selecciona el tipo de usuario</option><?php      
-                    while($tipos = $resultadoC->fetch_assoc()){ 
+                    while($tipos = $resultado->fetch_assoc()){ 
                         echo "<option selected value='" . $tipos['TipoID'] . "'>" . $tipos['NombreTipo'] . "</option>";
                     }
                 ?>
@@ -72,4 +72,5 @@
     <script src="../js/popper.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script src="../js/Funciones.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
 </body>
