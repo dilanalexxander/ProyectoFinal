@@ -88,7 +88,7 @@
             <h2 class="text-center encabezado2 my-3">Reservaciones</h2>
 
             <div class="text-end">
-                <a href="./AdminReserva.html" class="btn btn-md btn-secondary my-2">Editar opciones de reservación</a>
+                <a href="./AdminReserva.php" class="btn btn-md btn-secondary my-2">Editar opciones de reservación</a>
             </div>
 
             <div style="max-height: 50vh; overflow-y: auto;">
